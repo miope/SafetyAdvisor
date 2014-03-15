@@ -23,7 +23,8 @@ namespace SafetyAdvisor.Migrations
                   r => r.Name,
                   new ApplicationRole("Administrators", "have full access to the system"),
                   new ApplicationRole("Editors", "can create, edit and delete content"),
-                  new ApplicationRole("Users", "can only access resources connected to their account")
+                  new ApplicationRole("Memebers", "can access the project resutls repository"),
+                  new ApplicationRole("Users", "can only access resources connected to their account (like evaluations)")
               );
 
             string _adminUserName = "administrator";
