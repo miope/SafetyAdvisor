@@ -1,0 +1,36 @@
+﻿@model SafetyAdvisor.Models.RegisterViewModel
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <p>describe what ever is needed when registering for the new account</p>
+    <hr />
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            @Html.TextBoxFor(m => m.UserName, new { autofocus = "true", @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-4">
+            <input type="submit" class="btn btn-primary" value="Register" />
+        </div>
+    </div>
+}

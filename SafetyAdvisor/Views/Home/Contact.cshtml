@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="container">
+
+    <div class="col-lg-12">
+        <h1 class="page-header">Contact us <small>we'd Love to Hear From You!</small></h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1314.572836507349!2d9.173246288620861!3d48.77910912714375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db37a5619b17%3A0x7d94bc662fa037a4!2sSteinbeis+Advanced+Risk+Technologies!5e0!3m2!1sen!2s!4v1394650480168" width="1140" height="400" frameborder="0" style="border:0"></iframe>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>Let's Get In Touch!</h3>
+            <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+            <form role="form" method="POST" action="contact-form-submission.php">
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label for="input1">Name</label>
+                        <input type="text" name="contact_name" class="form-control" id="input1">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="input2">Email Address</label>
+                        <input type="email" name="contact_email" class="form-control" id="input2">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="input3">Phone Number</label>
+                        <input type="phone" name="contact_phone" class="form-control" id="input3">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-12">
+                        <label for="input4">Message</label>
+                        <textarea name="contact_message" class="form-control" rows="6" id="input4"></textarea>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="hidden" name="save" value="contact">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-4">
+            <h3>Steinbeis Advanced Risk Technologies</h3>
+            <h4>Safety Advisor</h4>
+            <p>
+                Willy-Bleicher-Straße 19<br>
+                70174 Stuttgart<br>
+                Germany<br>
+            </p>
+            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: 12345678</p>
+            <p><i class="fa fa-envelope-o"></i> <abbr title="Email">E</abbr>: <a href="mailto:infor@risk-technologies.com">info@risk-technologies.com</a></p>
+            <p><i class="fa fa-clock-o"></i> <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>
+        </div>
+    </div>
+</div>
