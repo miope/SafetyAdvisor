@@ -122,9 +122,20 @@ namespace SafetyAdvisor.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangePassword(ChagePasswordViewModel model) {
+        public async Task<ActionResult> ChangePassword(ChagePasswordViewModel model) {
 
-            return RedirectToAction("ChangePassword", new { message = "Password change has not been implented yet."});
+            if (ModelState.IsValid) {
+                IdentityResult _result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+                if (_result.Succeeded)
+                {
+                    return RedirectToAction("ChangePassword", new { message = "Your password has been changed." });
+                }
+                else {
+                    AddErrors(_result);
+                }
+            }
+
+            return View(model);
         }
 
         //
