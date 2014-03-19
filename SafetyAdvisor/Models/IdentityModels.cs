@@ -23,7 +23,6 @@ namespace SafetyAdvisor.Models
                 return string.Format("{0} {1}", this.FirstName, this.LastName);
             }
         }
-
     }
 
     public class ApplicationRole : IdentityRole
