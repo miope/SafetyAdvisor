@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SafetyAdvisor.Models;
+using SafetyAdvisor.Helpers;
 
 namespace SafetyAdvisor.Controllers
 {
@@ -45,12 +46,8 @@ namespace SafetyAdvisor.Controllers
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(applicationuser).State = EntityState.Modified;              
-                var _user = db.Users.Find(applicationuser.Id);
-                _user.FirstName = applicationuser.FirstName;
-                _user.LastName = applicationuser.LastName;
-                _user.Email = applicationuser.Email;
-                _user.Company = applicationuser.Company;
+                db.Users.Attach(applicationuser);
+                db.Entry(applicationuser).SetFieldsAsModified("FirstName", "LastName", "Email", "Company");
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
