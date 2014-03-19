@@ -129,22 +129,14 @@ namespace SafetyAdvisor.Controllers
         {
             ViewBag.StatusMessage = message;
             var _user = UserManager.FindById(User.Identity.GetUserId());
-            var _model = new ManageAccountViewModel()
-            {
-                FirstName = _user.FirstName,
-                LastName = _user.LastName,
-                Email = _user.Email,
-                Company = _user.Company
-            };
-
-            return View(_model);
+            return View(_user);
         }
 
         //
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Manage(ManageAccountViewModel model)
+        public async Task<ActionResult> Manage(ApplicationUser model)
         {
             if (ModelState.IsValid)
             {

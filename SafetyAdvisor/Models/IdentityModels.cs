@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SafetyAdvisor.Models
@@ -8,7 +9,10 @@ namespace SafetyAdvisor.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        [EmailAddress]
         public string Email { get; set; }
+
         public string Company { get; set; }
 
         [NotMapped]

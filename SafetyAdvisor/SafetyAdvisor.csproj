@@ -164,6 +164,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\IdentityExtenstions.cs" />
     <Compile Include="Migrations\201403141526308_InitialCreate.cs" />
     <Compile Include="Migrations\201403141526308_InitialCreate.Designer.cs">
       <DependentUpon>201403141526308_InitialCreate.cs</DependentUpon>
@@ -220,7 +221,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Repository.cshtml" />
     <Content Include="Views\Account\_RegisterPartial.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\_ManageAccountPartial.cshtml" />
