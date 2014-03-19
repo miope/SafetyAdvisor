@@ -28,7 +28,7 @@ namespace SafetyAdvisor.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class MyAccountViewModel
+    public class ManageAccountViewModel
     {
         [Display(Name="First name")]
         public string FirstName { get; set; }
@@ -36,10 +36,10 @@ namespace SafetyAdvisor.Models
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
+        [EmailAddress]
         public string Email { get; set; }
         public string Company { get; set; }
 
-    
     }
 
     public class LoginViewModel
