@@ -1,0 +1,60 @@
+﻿@model SafetyAdvisor.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Delete user";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@ViewBag.Title</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p><strong>Are you sure you want to delete this user?</strong> All data associated with this user will also be deleted. Please note that <strong>this action cannot be undone.</strong>.</p>
+            <hr />
+            @using (Html.BeginForm("delete", "users", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", disabled = true })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FullName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", disabled = true })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", disabled = true })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Company, new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Company, new { @class = "form-control", disabled = true })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Delete" class="btn btn-primary" /> or @Html.ActionLink("Cancel", "Index") and go back to the list.
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
