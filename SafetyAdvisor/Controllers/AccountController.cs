@@ -93,7 +93,6 @@ namespace SafetyAdvisor.Controllers
                     {
                         AddErrors(result);
                     }
-
                 }
                 else
                 {
@@ -180,14 +179,6 @@ namespace SafetyAdvisor.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
-        public ActionResult ExternalLoginFailure()
-        {
-            return View();
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing && UserManager != null)
@@ -233,14 +224,6 @@ namespace SafetyAdvisor.Controllers
                 return user.PasswordHash != null;
             }
             return false;
-        }
-
-        public enum ManageMessageId
-        {
-            ChangePasswordSuccess,
-            SetPasswordSuccess,
-            RemoveLoginSuccess,
-            Error
         }
 
         private ActionResult RedirectToLocal(string returnUrl)
