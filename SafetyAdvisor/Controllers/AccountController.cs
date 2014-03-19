@@ -83,8 +83,17 @@ namespace SafetyAdvisor.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Manage", new { message = "You have successffully registered for SafetyAdvisor." });
+                    result = await UserManager.AddToRoleAsync(user.Id, "Users");
+                    if (result.Succeeded)
+                    {
+                        await SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Manage", new { message = "You have successffully registered for SafetyAdvisor." });
+                    }
+                    else
+                    {
+                        AddErrors(result);
+                    }
+
                 }
                 else
                 {
