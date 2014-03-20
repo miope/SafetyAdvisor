@@ -14,7 +14,16 @@ namespace SafetyAdvisor.Controllers
     [Authorize(Roles="Administrators")]
     public class UsersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
+
+        public UsersController() : this(new ApplicationDbContext())
+        {
+        }
+
+        public UsersController(ApplicationDbContext dbContext)
+        {
+            db = dbContext;
+        }
 
         // GET: /Users/
         public ActionResult Index()
@@ -34,7 +43,8 @@ namespace SafetyAdvisor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(applicationuser);
+            
+            return View(new EditUserWithRolesViewModel(applicationuser, db.Roles));
         }
 
         // POST: /Users/Edit/5
@@ -42,15 +52,18 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,FirstName,LastName,Email,Company")] ApplicationUser applicationuser)
+        public ActionResult Edit(EditUserWithRolesViewModel applicationuser)
         {
             if (ModelState.IsValid)
             {
+                /*
                 db.Users.Attach(applicationuser);
                 db.Entry(applicationuser).SetFieldsAsModified("FirstName", "LastName", "Email", "Company");
                 db.SaveChanges();
+                 */
                 return RedirectToAction("Index");
             }
+
             return View(applicationuser);
         }
 
@@ -80,6 +93,7 @@ namespace SafetyAdvisor.Controllers
                 ModelState.AddModelError(string.Empty, "You cannot delete 'administrator' user.");
                 return View(applicationuser);
             }
+
             db.Users.Remove(applicationuser);
             db.SaveChanges();
             return RedirectToAction("Index");

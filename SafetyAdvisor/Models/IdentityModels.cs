@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace SafetyAdvisor.Models
 {
@@ -50,6 +51,8 @@ namespace SafetyAdvisor.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        new public virtual IDbSet<ApplicationRole> Roles { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
