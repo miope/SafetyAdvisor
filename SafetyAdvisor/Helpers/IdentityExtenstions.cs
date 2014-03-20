@@ -10,7 +10,7 @@ namespace SafetyAdvisor.Helpers
     {
         public static bool CanAccessRepository(this IPrincipal user)
         {
-            return user.IsInAnyRole(new string[] {"Administrators", "Editors", "Memebers"});
+            return user.IsInAnyRole(new string[] {"Administrators", "Editors", "Members"});
         }
 
         public static bool CanAccessSiteSettings(this IPrincipal user)

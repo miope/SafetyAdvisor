@@ -10,10 +10,9 @@ namespace SafetyAdvisor.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
+        
         [EmailAddress]
         public string Email { get; set; }
-
         public string Company { get; set; }
 
         [NotMapped]
@@ -46,8 +45,6 @@ namespace SafetyAdvisor.Models
             this.Description = roleDescription;
         }
     }
-
-
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
