@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SafetyAdvisor.Models;
 using SafetyAdvisor.Helpers;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SafetyAdvisor.Controllers
 {
@@ -52,19 +53,25 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditUserWithRolesViewModel applicationuser)
+        public ActionResult Edit(EditUserWithRolesViewModel user)
         {
             if (ModelState.IsValid)
             {
-                /*
-                db.Users.Attach(applicationuser);
-                db.Entry(applicationuser).SetFieldsAsModified("FirstName", "LastName", "Email", "Company");
+                var _dbUser = db.Users.Find(user.Id);
+                _dbUser.FirstName = user.FirstName;
+                _dbUser.LastName = user.LastName;
+                _dbUser.Email = user.Email;
+                _dbUser.Company = user.Company;
+                _dbUser.Roles.Clear();
+                user.Roles.Where(ur => ur.Selected)
+                          .ToList()
+                          .ForEach(ur => _dbUser.Roles.Add(new IdentityUserRole() { RoleId = ur.Id, UserId = _dbUser.Id }));
+               
                 db.SaveChanges();
-                 */
                 return RedirectToAction("Index");
             }
 
-            return View(applicationuser);
+            return View(user);
         }
 
         // GET: /Users/Delete/5

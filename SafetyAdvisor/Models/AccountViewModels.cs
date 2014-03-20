@@ -59,6 +59,13 @@ namespace SafetyAdvisor.Models
 
     public class EditUserWithRolesViewModel
     {
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
+        public string Company { get; set; }
         public IEnumerable<SelectRoleEditorViewModel> Roles { get; private set; }
 
         public EditUserWithRolesViewModel()
@@ -79,20 +86,13 @@ namespace SafetyAdvisor.Models
             this.Roles = roles.Select(r => new SelectRoleEditorViewModel(r) { Selected = user.Roles.Any(ur => ur.RoleId == r.Id) });
         }
 
-        public string Id { get; private set; }
-        [Required]
-        public string UserName { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        [EmailAddress]
-        public string Email { get; set; }
-        public string Company { get; set; }
+       
         
    }
 
     public class SelectRoleEditorViewModel
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Selected { get; set; }
@@ -103,6 +103,7 @@ namespace SafetyAdvisor.Models
 
         public SelectRoleEditorViewModel(ApplicationRole role)
         {
+            this.Id = role.Id;
             this.Name = role.Name;
             this.Description = role.Description;
         }

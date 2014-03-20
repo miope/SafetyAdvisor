@@ -21,10 +21,11 @@
                 <hr />
 
                 @Html.ValidationSummary(true)
+              
+                <h3>User data</h3>
                 
                 @Html.HiddenFor(model => model.Id)
-
-                <h3>User data</h3>
+                @Html.HiddenFor(model => model.UserName)
                 
                 <div class="form-group">
                     @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
