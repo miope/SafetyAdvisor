@@ -57,6 +57,11 @@ namespace SafetyAdvisor.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!user.Roles.Any(r => r.Selected))
+                {
+                    return View(user).Alert(AlertType.Danger, "The user needs to have at least one role!");
+                }
+
                 var _dbUser = db.Users.Find(user.Id);
                 _dbUser.FirstName = user.FirstName;
                 _dbUser.LastName = user.LastName;

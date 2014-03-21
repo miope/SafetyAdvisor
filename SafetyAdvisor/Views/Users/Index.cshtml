@@ -31,7 +31,7 @@
                         <th>
                             @Html.DisplayNameFor(m => m.Company)
                         </th>
-                        <th></th>
+                        <th>Options</th>
                     </tr>
                 </thead>
                 @foreach (var item in Model)
@@ -49,8 +49,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Company)                            
                         </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        <td>                            
+                            <a title="Edit" href="@Url.Action("edit", "Users", new { id = item.Id })"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                            <a title="Delete" href="@Url.Action("delete", "Users", new { id = item.Id })"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                 }
