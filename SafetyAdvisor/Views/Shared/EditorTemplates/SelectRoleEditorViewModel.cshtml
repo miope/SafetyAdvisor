@@ -1,0 +1,11 @@
+﻿@model SafetyAdvisor.Models.SelectRoleEditorViewModel
+
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.Name)
+
+<div class="checkbox">
+    <label>
+        @Html.CheckBoxFor(m => m.Selected)
+        @Html.DisplayFor(m => m.Name) [ @Html.DisplayFor(m => m.Description) ]
+    </label>
+</div>

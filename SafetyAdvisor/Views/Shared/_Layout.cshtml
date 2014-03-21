@@ -24,7 +24,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li @Html.CssClassIfControllerAndAction("home", "about", "active")>@Html.ActionLink("About", "about", "home")</li>
-                    <li @Html.CssClassIfControllerAndAction("home", "services", "active")>@Html.ActionLink("Services", "services", "home")</li>
                     <li @Html.CssClassIfControllerAndAction("home", "contact", "active")>@Html.ActionLink("Contact", "contact", "home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

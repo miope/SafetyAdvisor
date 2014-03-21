@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using SafetyAdvisor.Helpers
 
 @if (Request.IsAuthenticated)
 {
@@ -6,6 +7,11 @@
     {
         @Html.AntiForgeryToken()
         <ul class="nav navbar-nav navbar-right">
+            @if (User.CanAccessRepository())
+            {
+                <li @Html.CssClassIfControllerAndAction("repository", "index", "active")>@Html.ActionLink("Repository", "index", "repository")</li>
+            }
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;&nbsp;@User.Identity.Name <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -14,6 +20,15 @@
                     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                 </ul>
             </li>
+            @if (User.CanAccessSiteSettings())
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i>&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Users", "index", "users")</li>
+                    </ul>
+                </li>
+            }
         </ul>
     }
 }

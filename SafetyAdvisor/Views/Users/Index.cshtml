@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SafetyAdvisor.Models.ApplicationUser>
+@using SafetyAdvisor.Helpers;
+
+@{
+    ViewBag.Title = "Registered users";
+}
+<div class="container">
+
+    @Html.RenderAlerts()
+
+   <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@ViewBag.Title</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(m => m.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.FullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.Company)
+                        </th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Company)                            
+                        </td>
+                        <td>                            
+                            <a title="Edit" href="@Url.Action("edit", "Users", new { id = item.Id })"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                            <a title="Delete" href="@Url.Action("delete", "Users", new { id = item.Id })"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
