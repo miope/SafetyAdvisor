@@ -91,7 +91,7 @@ namespace SafetyAdvisor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(applicationuser);
+            return View(applicationuser).Alert(AlertType.Warning, "Are you really sure? This ation cannot be undone!");
         }
 
         // POST: /Users/Delete/5
