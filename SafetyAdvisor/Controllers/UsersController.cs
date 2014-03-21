@@ -68,7 +68,7 @@ namespace SafetyAdvisor.Controllers
                           .ForEach(ur => _dbUser.Roles.Add(new IdentityUserRole() { RoleId = ur.Id, UserId = _dbUser.Id }));
                
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index").Alert(AlertType.Success, "The user data has been updated.");
             }
 
             return View(user);
@@ -103,7 +103,7 @@ namespace SafetyAdvisor.Controllers
 
             db.Users.Remove(applicationuser);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index").Alert(AlertType.Success, "User has been deleted.");
         }
 
         protected override void Dispose(bool disposing)

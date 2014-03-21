@@ -1,9 +1,12 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using SafetyAdvisor.Helpers;
 
 @{
     ViewBag.Title = "Manage your account";
 }
 <div class="container">
+
+    @Html.RenderAlerts()
 
     <div class="row">
         <div class="col-lg-12">
@@ -12,11 +15,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-            @if (!string.IsNullOrEmpty(ViewBag.StatusMessage))
-            {
-                <p class="text-success">@ViewBag.StatusMessage</p>
-            }
+        <div class="col-md-12">            
             @Html.Partial("_ManageAccountPartial")
         </div>
     </div>

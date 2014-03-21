@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<SafetyAdvisor.Models.ApplicationUser>
+@using SafetyAdvisor.Helpers;
 
 @{
-    ViewBag.Title = "Registerd users";
+    ViewBag.Title = "Registered users";
 }
 <div class="container">
 
-    <div class="row">
+    @Html.RenderAlerts()
+
+   <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">@ViewBag.Title</h1>
         </div>
@@ -44,7 +47,7 @@
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Company)
+                            @Html.DisplayFor(modelItem => item.Company)                            
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | @Html.ActionLink("Delete", "Delete", new { id = item.Id })

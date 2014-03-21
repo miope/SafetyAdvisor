@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SafetyAdvisor.Models;
+using SafetyAdvisor.Helpers;
 
 namespace SafetyAdvisor.Controllers
 {
@@ -87,7 +88,7 @@ namespace SafetyAdvisor.Controllers
                     if (result.Succeeded)
                     {
                         await SignInAsync(user, isPersistent: false);
-                        return RedirectToAction("Manage", new { message = "You have successffully registered for SafetyAdvisor." });
+                        return RedirectToAction("Manage").Alert(AlertType.Success, "You have registered for SafetyAdvisor. You can now edit your account data.");
                     }
                     else
                     {
@@ -105,8 +106,7 @@ namespace SafetyAdvisor.Controllers
         }
 
         public ActionResult ChangePassword(string message)
-        {
-            ViewBag.StatusMessage = message;
+        {            
             return View();
         }
 
@@ -120,7 +120,7 @@ namespace SafetyAdvisor.Controllers
                 IdentityResult _result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
                 if (_result.Succeeded)
                 {
-                    return RedirectToAction("ChangePassword", new { message = "Your password has been changed." });
+                    return RedirectToAction("ChangePassword").Alert(AlertType.Success, "Your password has been changed.");
                 }
                 else
                 {
@@ -133,9 +133,8 @@ namespace SafetyAdvisor.Controllers
 
         //
         // GET: /Account/Manage
-        public ActionResult Manage(string message)
-        {
-            ViewBag.StatusMessage = message;
+        public ActionResult Manage()
+        {            
             var _user = UserManager.FindById(User.Identity.GetUserId());
             return View(_user);
         }
@@ -157,7 +156,7 @@ namespace SafetyAdvisor.Controllers
                 IdentityResult result = await UserManager.UpdateAsync(_user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Manage", new { message = "Your account data has been successfully upadated." });
+                    return RedirectToAction("Manage").Alert(AlertType.Success, "Your account has been updated.");
                 }
                 else
                 {
