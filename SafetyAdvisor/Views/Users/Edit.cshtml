@@ -1,10 +1,13 @@
 ﻿@model SafetyAdvisor.Models.EditUserWithRolesViewModel
+@using SafetyAdvisor.Helpers;
 
 @{
     ViewBag.Title = "Edit user";
 }
 
 <div class="container">
+
+    @Html.RenderAlerts()
 
     <div class="row">
         <div class="col-lg-12">
