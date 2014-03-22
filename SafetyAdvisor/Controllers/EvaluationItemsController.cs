@@ -56,7 +56,14 @@ namespace SafetyAdvisor.Controllers
             {
                 db.EvaluationItems.Add(evaluationitem);
                 db.SaveChanges();
-                return RedirectToAction("Index").Alert(AlertType.Success, "Evaluation item has been created.");
+                if (evaluationitem.ParentId.HasValue)
+                {
+                    return RedirectToAction("edit", new { id = evaluationitem.ParentId }).Alert(AlertType.Success, "Evaluation item has been created.");
+                }
+                else
+                {
+                    return RedirectToAction("index").Alert(AlertType.Success, "Evaluation item has been created.");
+                }
             }
 
             return View(evaluationitem);
@@ -105,7 +112,7 @@ namespace SafetyAdvisor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(evaluationitem).Alert(AlertType.Warning, "Are you sure? This action cannot be undone!");
+            return View(evaluationitem).Alert(AlertType.Danger, "Are you sure? This action cannot be undone! And if you proceed it will remove all child elements recursively.");
         }
 
         // POST: /EvaluationItem/Delete/5

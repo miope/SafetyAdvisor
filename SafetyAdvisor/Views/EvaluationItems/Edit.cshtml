@@ -19,10 +19,10 @@
         <div class="col-md-12">
             @using (Html.BeginForm("edit", "evaluationitems", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                @Html.Partial("_EditEvaluationItem");
+                @Html.Partial("_EditEvaluationItem")
             }
             <hr />
-            <h3>Child items</h3>
+            <h3>Child items<a href="@Url.Action("create", new { parentid = Model.Id })" class="btn btn-success pull-right">Add child item...</a></h3>
             @Html.Partial("_ListEvaluationItems", Model.Children)
         </div>
     </div>

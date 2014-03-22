@@ -27,5 +27,11 @@ namespace SafetyAdvisor.Helpers
         {
             return MvcHtmlString.Create(html.IsControllerAndAction(controllerName, actionName) ? string.Format("class=\"{0}\"", cssClass) : string.Empty);
         }
+
+        public static MvcHtmlString LinkToReferrer(this HtmlHelper @this, string text, MvcHtmlString falbackUrl)
+        {
+            var _referrer = @this.ViewContext.RequestContext.HttpContext.Request.UrlReferrer;
+            return _referrer != null ? MvcHtmlString.Create(string.Format("<a href=\"{0}\">{1}</a>", _referrer.ToString(), text)) : falbackUrl;
+        }
     }
 }

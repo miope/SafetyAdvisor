@@ -17,12 +17,15 @@
 
     <div class="row">
         <div class="col-md-12">
-            <p>Are you sure you want to delete this item? This action cannot be undone. Please note that you cannot delete an item if it still has children.</p>
+            <p>
+                Are you sure you want to delete this item? This action cannot be undone. <strong>Please note that this will also delete all items associated with this item (children...and also their children etc.).</strong>
+                This evaluation item has <span class="label label-danger">@Model.Children.Count()</span> direct descendants (children).
+            </p>
             <hr />
             @using (Html.BeginForm("delete", "evaluationitems", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.Caption, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -37,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Delete" class="btn btn-primary" /> or @Html.ActionLink("Cancel", "Index") and go back to the list.
+                        <input type="submit" value="Delete" class="btn btn-primary" /> or @Html.LinkToReferrer("Cancel", @Html.ActionLink("Cancel", "index")) and go back.
                     </div>
                 </div>
             }

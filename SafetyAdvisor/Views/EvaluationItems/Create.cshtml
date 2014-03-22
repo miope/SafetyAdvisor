@@ -19,11 +19,6 @@
         <div class="col-md-12">
             @using (Html.BeginForm("create", "evaluationitems", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                if (Model != null && Model.ParentId != null)
-                {
-                    <strong>Create child item for @Model.Parent.Caption (@Model.ParentId)</strong>
-                    @Html.HiddenFor(m => m.ParentId)
-                    }
                 @Html.Partial("_EditEvaluationItem")
             }
         </div>
