@@ -31,24 +31,15 @@ namespace SafetyAdvisor.Controllers
             return View(db.EvaluationItems.ToList());
         }
 
-        // GET: /EvaluationItem/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            EvaluationItem evaluationitem = db.EvaluationItems.Find(id);
-            if (evaluationitem == null)
-            {
-                return HttpNotFound();
-            }
-            return View(evaluationitem);
-        }
-
         // GET: /EvaluationItem/Create
-        public ActionResult Create()
+        public ActionResult Create(int? parentId)
         {
+            if (parentId != null) {
+                var _parent = db.EvaluationItems.Find(parentId);
+                var _model = new EvaluationItem() { ParentId = parentId, Parent = _parent };
+                return View(_model).Alert(AlertType.Info, string.Format("Creating item as child of {0} [id={1}]", _parent.Caption, _parent.Id));
+            }
+
             return View();
         }
 

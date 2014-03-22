@@ -53,11 +53,19 @@ namespace SafetyAdvisor.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         new public virtual IDbSet<ApplicationRole> Roles { get; set; }
-        new public virtual IDbSet<EvaluationItem> EvaluationItems { get; set; }
+        public virtual IDbSet<EvaluationItem> EvaluationItems { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<EvaluationItem>()
+                        .HasOptional(ei => ei.Parent)
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

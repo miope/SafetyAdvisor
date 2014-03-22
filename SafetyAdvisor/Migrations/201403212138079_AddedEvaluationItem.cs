@@ -14,18 +14,18 @@ namespace SafetyAdvisor.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Caption = c.String(nullable: false),
                         Content = c.String(nullable: false),
-                        Parent_Id = c.Int(),
+                        ParentId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.EvaluationItems", t => t.Parent_Id)
-                .Index(t => t.Parent_Id);
+                .ForeignKey("dbo.EvaluationItems", t => t.ParentId)
+                .Index(t => t.ParentId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.EvaluationItems", "Parent_Id", "dbo.EvaluationItems");
-            DropIndex("dbo.EvaluationItems", new[] { "Parent_Id" });
+            DropForeignKey("dbo.EvaluationItems", "ParentId", "dbo.EvaluationItems");
+            DropIndex("dbo.EvaluationItems", new[] { "ParentId" });
             DropTable("dbo.EvaluationItems");
         }
     }
