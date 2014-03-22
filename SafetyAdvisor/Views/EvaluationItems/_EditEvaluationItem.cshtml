@@ -5,12 +5,12 @@
     <p>You can edit the evaluation item data below. Please note that <strong>both Caption and Content are required fields</strong>.</p>
     <hr />
 
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary()
 
     <div class="form-group">
         @Html.LabelFor(model => model.Caption, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Caption, new { @class = "form-control" })
+            @Html.TextBoxFor(model => model.Caption, new { @class = "form-control", autofocus=true })
         </div>
     </div>
 

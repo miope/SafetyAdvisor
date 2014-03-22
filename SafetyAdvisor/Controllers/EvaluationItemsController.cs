@@ -112,7 +112,7 @@ namespace SafetyAdvisor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(evaluationitem);
+            return View(evaluationitem).Alert(AlertType.Danger, "Are you sure? This action cannot be undone!");
         }
 
         // POST: /EvaluationItem/Delete/5
