@@ -21,8 +21,8 @@
             {
                 if (Model != null && Model.ParentId != null)
                 {
-                    <h3>Create child item for @Model.Parent.Caption (@Model.ParentId)</h3>
-                    Html.HiddenFor(m => m.ParentId);
+                    <strong>Create child item for @Model.Parent.Caption (@Model.ParentId)</strong>
+                    @Html.HiddenFor(m => m.ParentId)
                     }
                 @Html.Partial("_EditEvaluationItem")
             }

@@ -62,9 +62,6 @@ namespace SafetyAdvisor.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<EvaluationItem>()
-                        .HasOptional(ei => ei.Parent)
-
             base.OnModelCreating(modelBuilder);
         }
     }

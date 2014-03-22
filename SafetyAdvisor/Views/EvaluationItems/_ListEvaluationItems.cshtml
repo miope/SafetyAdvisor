@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SafetyAdvisor.Models.EvaluationItem>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Caption)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Content)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Children)
+                    </th>
+                    <th class="text-center">Options</th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a title="Edit" href="@Url.Action("edit", "EvaluationItems", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Id)</a>
+                    </td>
+                    <td>
+                        <a title="Edit" href="@Url.Action("edit", "EvaluationItems", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Caption)</a>
+                    </td>
+                    <td>
+                        @string.Join("", item.Content.Take(75)) ...
+                    </td>
+                    <td class="text-center">
+                        <span class="badge">@item.Children.Count()</span>
+                    </td>
+                    <td class="text-center">
+                        <a title="Edit" href="@Url.Action("edit", "EvaluationItems", new { id = item.Id })"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                        <a title="Delete" href="@Url.Action("delete", "EvaluationItems", new { id = item.Id })"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

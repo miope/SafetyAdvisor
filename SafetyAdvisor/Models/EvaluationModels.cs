@@ -16,5 +16,7 @@ namespace SafetyAdvisor.Models
 
         public int? ParentId { get; set; }
         public EvaluationItem Parent { get; set; }
+
+        public virtual ICollection<EvaluationItem> Children { get; set; }
     }
 }

@@ -177,9 +177,9 @@
     <Compile Include="Migrations\201403141533074_ExtendedIdentityRole.Designer.cs">
       <DependentUpon>201403141533074_ExtendedIdentityRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201403212138079_AddedEvaluationItem.cs" />
-    <Compile Include="Migrations\201403212138079_AddedEvaluationItem.Designer.cs">
-      <DependentUpon>201403212138079_AddedEvaluationItem.cs</DependentUpon>
+    <Compile Include="Migrations\201403221411435_AddedEvaluationItem.cs" />
+    <Compile Include="Migrations\201403221411435_AddedEvaluationItem.Designer.cs">
+      <DependentUpon>201403221411435_AddedEvaluationItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -246,6 +246,7 @@
     <Content Include="Views\EvaluationItems\Edit.cshtml" />
     <Content Include="Views\EvaluationItems\Index.cshtml" />
     <Content Include="Views\EvaluationItems\_EditEvaluationItem.cshtml" />
+    <Content Include="Views\EvaluationItems\_ListEvaluationItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -264,8 +265,8 @@
     <EmbeddedResource Include="Migrations\201403141533074_ExtendedIdentityRole.resx">
       <DependentUpon>201403141533074_ExtendedIdentityRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201403212138079_AddedEvaluationItem.resx">
-      <DependentUpon>201403212138079_AddedEvaluationItem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201403221411435_AddedEvaluationItem.resx">
+      <DependentUpon>201403221411435_AddedEvaluationItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

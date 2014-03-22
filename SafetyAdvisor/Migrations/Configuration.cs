@@ -14,6 +14,7 @@ namespace SafetyAdvisor.Migrations
         {
             AutomaticMigrationsEnabled = false;
             ContextKey = "SafetyAdvisor.Models.ApplicationDbContext";
+            this.AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SafetyAdvisor.Models.ApplicationDbContext context)

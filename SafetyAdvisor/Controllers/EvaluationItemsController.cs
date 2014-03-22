@@ -11,12 +11,13 @@ using SafetyAdvisor.Helpers;
 
 namespace SafetyAdvisor.Controllers
 {
-    [Authorize(Roles="Administrators,Editors")]
+    [Authorize(Roles = "Administrators,Editors")]
     public class EvaluationItemsController : Controller
     {
         private ApplicationDbContext db;
 
-        public EvaluationItemsController() : this(new ApplicationDbContext())
+        public EvaluationItemsController()
+            : this(new ApplicationDbContext())
         {
         }
 
@@ -28,13 +29,14 @@ namespace SafetyAdvisor.Controllers
         // GET: /EvaluationItem/
         public ActionResult Index()
         {
-            return View(db.EvaluationItems.ToList());
+            return View(db.EvaluationItems.Where(ei => ei.Parent == null).ToList());
         }
 
         // GET: /EvaluationItem/Create
         public ActionResult Create(int? parentId)
         {
-            if (parentId != null) {
+            if (parentId != null)
+            {
                 var _parent = db.EvaluationItems.Find(parentId);
                 var _model = new EvaluationItem() { ParentId = parentId, Parent = _parent };
                 return View(_model).Alert(AlertType.Info, string.Format("Creating item as child of {0} [id={1}]", _parent.Caption, _parent.Id));
@@ -48,7 +50,7 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Caption,Content")] EvaluationItem evaluationitem)
+        public ActionResult Create([Bind(Include = "Id,Caption,Content,ParentId")] EvaluationItem evaluationitem)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +82,7 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Caption,Content")] EvaluationItem evaluationitem)
+        public ActionResult Edit([Bind(Include = "Id,Caption,Content")] EvaluationItem evaluationitem)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +105,7 @@ namespace SafetyAdvisor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(evaluationitem).Alert(AlertType.Danger, "Are you sure? This action cannot be undone!");
+            return View(evaluationitem).Alert(AlertType.Warning, "Are you sure? This action cannot be undone!");
         }
 
         // POST: /EvaluationItem/Delete/5
@@ -112,6 +114,10 @@ namespace SafetyAdvisor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             EvaluationItem evaluationitem = db.EvaluationItems.Find(id);
+            if (evaluationitem.Children.Any()) 
+            {
+                return View(evaluationitem).Alert(AlertType.Danger, "You can not delete this item because there are other items still referencing it!");
+            }
             db.EvaluationItems.Remove(evaluationitem);
             db.SaveChanges();
             return RedirectToAction("Index").Alert(AlertType.Success, "Evaluation item has been deleted.");

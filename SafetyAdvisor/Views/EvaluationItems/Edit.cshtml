@@ -21,6 +21,9 @@
             {
                 @Html.Partial("_EditEvaluationItem");
             }
+            <hr />
+            <h3>Child items</h3>
+            @Html.Partial("_ListEvaluationItems", Model.Children)
         </div>
     </div>
 </div>
