@@ -49,20 +49,4 @@ namespace SafetyAdvisor.Models
             this.Description = roleDescription;
         }
     }
-
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        new public virtual IDbSet<ApplicationRole> Roles { get; set; }
-        public virtual IDbSet<EvaluationItem> EvaluationItems { get; set; }
-
-        public ApplicationDbContext()
-            : base("DefaultConnection")
-        {
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-    }
 }

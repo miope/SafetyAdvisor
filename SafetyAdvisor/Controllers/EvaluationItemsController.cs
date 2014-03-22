@@ -114,11 +114,7 @@ namespace SafetyAdvisor.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             EvaluationItem evaluationitem = db.EvaluationItems.Find(id);
-            if (evaluationitem.Children.Any()) 
-            {
-                return View(evaluationitem).Alert(AlertType.Danger, "You can not delete this item because there are other items still referencing it!");
-            }
-            db.EvaluationItems.Remove(evaluationitem);
+            db.DeleteRecursive(evaluationitem);
             db.SaveChanges();
             return RedirectToAction("Index").Alert(AlertType.Success, "Evaluation item has been deleted.");
         }
