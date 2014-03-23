@@ -31,6 +31,7 @@
                         <th>
                             @Html.DisplayNameFor(m => m.Company)
                         </th>
+                        <th>Roles</th>
                         <th class="text-center">Options</th>
                     </tr>
                 </thead>
@@ -38,16 +39,19 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.UserName)
+                            @item.UserName
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
+                            @item.FullName
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Email)
+                            @item.Email
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Company)                            
+                            @item.Company
+                        </td>
+                        <td>
+                            @string.Join(", ", item.Roles.Select(r => r.Role.Name))
                         </td>
                         <td class="text-center">                            
                             <a title="Edit" href="@Url.Action("edit", "Users", new { id = item.Id })"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
