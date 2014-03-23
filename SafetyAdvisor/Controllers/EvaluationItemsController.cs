@@ -76,7 +76,7 @@ namespace SafetyAdvisor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EvaluationItem evaluationitem = db.EvaluationItems.Find(id);
+            EvaluationItem evaluationitem = db.EvaluationItems.Include(ei => ei.Parent.Parent.Parent).FirstOrDefault(ei => ei.Id == id);
             if (evaluationitem == null)
             {
                 return HttpNotFound();
@@ -89,13 +89,20 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Caption,Content")] EvaluationItem evaluationitem)
+        public ActionResult Edit([Bind(Include = "Id,Caption,Content,ParentId")] EvaluationItem evaluationitem)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(evaluationitem).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index").Alert(AlertType.Success, "Evaluation item has been updated.");
+                if (evaluationitem.ParentId.HasValue)
+                {
+                    return RedirectToAction("edit", new { evaluationitem.ParentId }).Alert(AlertType.Success, "Evaluation item has been updated.");
+                }
+                else
+                { 
+                    return RedirectToAction("index").Alert(AlertType.Success, "Evaluation item has been updated.");
+                }
             }
             return View(evaluationitem);
         }

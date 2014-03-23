@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SafetyAdvisor.Models.EvaluationItem>
+@{
+    var _last = Model.Last();
+}
+
+@if (Model.Count() > 1)
+{
+    <ol class="breadcrumb">
+        @foreach (var item in Model)
+        {
+            if (item.Id != _last.Id)
+            {
+                <li>@Html.ActionLink(string.Format("{0}...", string.Join("", item.Caption.Take(20))), "edit", "evaluationitems", new { id = item.Id }, null)</li>
+        }
+            else
+            {
+                <li class="active">@item.Caption</li>
+            }
+        }
+    </ol>
+}

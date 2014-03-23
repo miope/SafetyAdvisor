@@ -18,5 +18,15 @@ namespace SafetyAdvisor.Models
         public EvaluationItem Parent { get; set; }
 
         public virtual ICollection<EvaluationItem> Children { get; set; }
+
+        public IEnumerable<EvaluationItem> GetFamillyTree()
+        {
+            var _current = this;
+            while (_current != null)
+            {
+                yield return _current;
+                _current = _current.Parent;
+            }
+        }
     }
 }
