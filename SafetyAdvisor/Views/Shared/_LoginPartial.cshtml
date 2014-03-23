@@ -7,6 +7,7 @@
     {
         @Html.AntiForgeryToken()
         <ul class="nav navbar-nav navbar-right">
+            <li @Html.CssClassIfControllerAndAction("account", "myevals", "active")>@Html.ActionLink("My Evaluations", "myevals", "account")</li>
             @if (User.CanAccessRepository())
             {
                 <li @Html.CssClassIfControllerAndAction("repository", "index", "active")>@Html.ActionLink("Repository", "index", "repository")</li>
