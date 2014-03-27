@@ -1,4 +1,23 @@
-﻿body {
+﻿/* Styles for the file upload using drag and drop into the dropzone */
+#dropzone {
+   
+}
+#dropzone.in {
+
+}
+#dropzone.hover {
+    background-color: #bebebe;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }

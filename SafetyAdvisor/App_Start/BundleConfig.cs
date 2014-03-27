@@ -27,6 +27,7 @@ namespace SafetyAdvisor
                     "~/Scripts/jquery.ui.widget.js",
                     "~/Scripts/jquery.fileupload.js",
                     "~/Scripts/jquery.fileupload-ui.js",
+                    "~/Scripts/jquery.fileupload-process.js",
                     "~/Scripts/jquery.iframe-transport.js",
                     "~/Scripts/fileuploader.js"
                 ));
