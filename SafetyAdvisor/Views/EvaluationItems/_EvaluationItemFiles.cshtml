@@ -3,7 +3,7 @@
     @Html.Hidden("objectContext", @Model.Id)
     <div class="row">
         <div class="col-lg-12">
-            <div id="dropzone" class="well" >
+            <div id="dropzone" class="well">
                 <div class="form-group">
                     <label class="control-label col-md-2"><i class="fa fa-plus-circle"></i>&nbsp;Add files</label>
                     <div class="col-md-10">
@@ -17,3 +17,42 @@
         </div>
     </div>
 </form>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>File name</th>
+                    <th class="text-center">File size (bytes)</th>
+                    <th class="text-center">Options</th>
+                </tr>
+            </thead>
+            <tbody id="filerows"></tbody>
+        </table>
+        <script id="template-download" type="text/x-tmpl">
+            {% for (var i=0, file; file=o.files[i]; i++) { %}
+            <tr>
+                <td>
+
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}"><i class="fa fa-file-text"></i>&nbsp;&nbsp;{%=file.name%}</a>
+
+                    {% if (file.error) { %}
+                    <div><span class="label label-important">Error</span> {%=file.error%}</div>
+                    {% } %}
+                </td>
+                <td class="text-center">
+                    {%=file.size%}
+                </td>
+                <td class="text-center">
+                    <form method="delete" action="/backload/uploadhandler?filename={%=file.name%}&objectContext=10" role="form" name="deleteFile" id="deleteFile">
+                        <a title="Delete" href="#" onclick="$('#deleteFile').submit(); return false;"><i class="fa fa-trash-o"></i></a>
+                    </form>
+
+                </td>
+            </tr>
+            {% } %}
+        </script>
+    </div>
+</div>
+
+

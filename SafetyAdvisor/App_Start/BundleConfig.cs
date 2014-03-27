@@ -25,10 +25,12 @@ namespace SafetyAdvisor
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryfileupload").Include(
                     "~/Scripts/jquery.ui.widget.js",
-                    "~/Scripts/jquery.fileupload.js",
-                    "~/Scripts/jquery.fileupload-ui.js",
-                    "~/Scripts/jquery.fileupload-process.js",
+                    "~/Scripts/tmpl.debug.js",
                     "~/Scripts/jquery.iframe-transport.js",
+                    "~/Scripts/jquery.fileupload.js",
+                    "~/Scripts/jquery.fileupload-process.js",
+                    "~/Scripts/jquery.fileupload-validate.js",
+                    "~/Scripts/jquery.fileupload-ui.js",
                     "~/Scripts/fileuploader.js"
                 ));
 

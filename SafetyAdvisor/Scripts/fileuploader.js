@@ -9,7 +9,7 @@
         dropZone: $('#dropzone'),
         autoUpload: true,
         maxFileSize: 10485760,
-
+        uploadTemplateId: null,
         start: function (e, data) {
             $('.progress').removeClass('hide');
             $('#overallbar').css('width', '0%');
@@ -23,8 +23,25 @@
 
         done: function (e, data) {
             $('.progress').addClass('hide');
+            $('#filerows').append(tmpl("template-download", data.result));
         }
     });
+
+    $('#fileupload').addClass('fileupload-processing');
+    $.ajax({
+        // Uncomment the following to send cross-domain cookies:
+        //xhrFields: {withCredentials: true},
+        url: url,
+        dataType: 'json',
+        context: $('#fileupload')[0],
+        data: { objectContext: $('#objectContext').val() },
+    }).always(function () {
+        $(this).removeClass('fileupload-processing');
+    }).done(function (result) {
+        $(this).fileupload('option', 'done')
+            .call(this, null, { result: result });
+    });
+
 
     $(document).bind('dragover', function (e) {
         var dropZone = $('#dropzone'),
