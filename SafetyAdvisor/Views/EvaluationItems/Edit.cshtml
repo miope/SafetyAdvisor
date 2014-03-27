@@ -25,10 +25,14 @@
             <hr />
             <h3>Child items<a href="@Url.Action("create", new { parentid = Model.Id })" class="btn btn-success pull-right">Add child item...</a></h3>
             @Html.Partial("_ListEvaluationItems", Model.Children)
+            <hr />
+            <h3>Files attached to this evaluation item</h3>
+            @Html.Partial("_EvaluationItemFiles", Model)
         </div>
     </div>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryfileupload")
 }

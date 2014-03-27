@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Backload">
+      <HintPath>..\packages\Backload.1.9.3.1\lib\net45\Backload.dll</HintPath>
+    </Reference>
+    <Reference Include="Backload.Contracts">
+      <HintPath>..\packages\Backload.1.9.3.1\lib\net45\Backload.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -96,6 +102,9 @@
     <Reference Include="Newtonsoft.Json">
       <Private>True</Private>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.2\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -191,6 +200,86 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Backload\content-types\128\Excel.png" />
+    <Content Include="Content\Backload\content-types\128\File.png" />
+    <Content Include="Content\Backload\content-types\128\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\128\Image.png" />
+    <Content Include="Content\Backload\content-types\128\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\128\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\128\PDF.png" />
+    <Content Include="Content\Backload\content-types\128\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\128\Text.png" />
+    <Content Include="Content\Backload\content-types\128\Word.png" />
+    <Content Include="Content\Backload\content-types\16\Excel.png" />
+    <Content Include="Content\Backload\content-types\16\File.png" />
+    <Content Include="Content\Backload\content-types\16\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\16\Image.png" />
+    <Content Include="Content\Backload\content-types\16\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\16\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\16\PDF.png" />
+    <Content Include="Content\Backload\content-types\16\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\16\Text.png" />
+    <Content Include="Content\Backload\content-types\16\Word.png" />
+    <Content Include="Content\Backload\content-types\24\Excel.png" />
+    <Content Include="Content\Backload\content-types\24\File.png" />
+    <Content Include="Content\Backload\content-types\24\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\24\Image.png" />
+    <Content Include="Content\Backload\content-types\24\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\24\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\24\PDF.png" />
+    <Content Include="Content\Backload\content-types\24\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\24\Text.png" />
+    <Content Include="Content\Backload\content-types\24\Word.png" />
+    <Content Include="Content\Backload\content-types\32\Excel.png" />
+    <Content Include="Content\Backload\content-types\32\File.png" />
+    <Content Include="Content\Backload\content-types\32\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\32\Image.png" />
+    <Content Include="Content\Backload\content-types\32\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\32\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\32\PDF.png" />
+    <Content Include="Content\Backload\content-types\32\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\32\Text.png" />
+    <Content Include="Content\Backload\content-types\32\Word.png" />
+    <Content Include="Content\Backload\content-types\48\Excel.png" />
+    <Content Include="Content\Backload\content-types\48\File.png" />
+    <Content Include="Content\Backload\content-types\48\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\48\Image.png" />
+    <Content Include="Content\Backload\content-types\48\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\48\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\48\PDF.png" />
+    <Content Include="Content\Backload\content-types\48\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\48\Text.png" />
+    <Content Include="Content\Backload\content-types\48\Word.png" />
+    <Content Include="Content\Backload\content-types\64\Excel.png" />
+    <Content Include="Content\Backload\content-types\64\File.png" />
+    <Content Include="Content\Backload\content-types\64\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\64\Image.png" />
+    <Content Include="Content\Backload\content-types\64\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\64\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\64\PDF.png" />
+    <Content Include="Content\Backload\content-types\64\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\64\Text.png" />
+    <Content Include="Content\Backload\content-types\64\Word.png" />
+    <Content Include="Content\Backload\content-types\72\Excel.png" />
+    <Content Include="Content\Backload\content-types\72\File.png" />
+    <Content Include="Content\Backload\content-types\72\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\72\Image.png" />
+    <Content Include="Content\Backload\content-types\72\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\72\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\72\PDF.png" />
+    <Content Include="Content\Backload\content-types\72\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\72\Text.png" />
+    <Content Include="Content\Backload\content-types\72\Word.png" />
+    <Content Include="Content\Backload\content-types\96\Excel.png" />
+    <Content Include="Content\Backload\content-types\96\File.png" />
+    <Content Include="Content\Backload\content-types\96\FileNotFound.png" />
+    <Content Include="Content\Backload\content-types\96\Image.png" />
+    <Content Include="Content\Backload\content-types\96\Multimedia.png" />
+    <Content Include="Content\Backload\content-types\96\OpenOffice-Writer.png" />
+    <Content Include="Content\Backload\content-types\96\PDF.png" />
+    <Content Include="Content\Backload\content-types\96\PowerPoint.png" />
+    <Content Include="Content\Backload\content-types\96\Text.png" />
+    <Content Include="Content\Backload\content-types\96\Word.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -201,9 +290,14 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fileuploader.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.iframe-transport.js" />
+    <Content Include="Scripts\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -249,6 +343,9 @@
     <Content Include="Views\EvaluationItems\_EditEvaluationItem.cshtml" />
     <Content Include="Views\EvaluationItems\_ListEvaluationItems.cshtml" />
     <Content Include="Views\EvaluationItems\_ParentBreadcrumbs.cshtml" />
+    <Content Include="Views\EvaluationItems\_EvaluationItemFiles.cshtml" />
+    <None Include="Web.Backload.Default.config" />
+    <None Include="Web.Backload.xsd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,6 +23,14 @@ namespace SafetyAdvisor
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryfileupload").Include(
+                    "~/Scripts/jquery.ui.widget.js",
+                    "~/Scripts/jquery.fileupload.js",
+                    "~/Scripts/jquery.fileupload-ui.js",
+                    "~/Scripts/jquery.iframe-transport.js",
+                    "~/Scripts/fileuploader.js"
+                ));
+
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
