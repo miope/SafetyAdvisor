@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2"><i class="fa fa-plus-circle"></i>&nbsp;Add files</label>
                     <div class="col-md-10">
-                        <input class="" type="file" id="fileupload" name="fileupload" multiple="multiple" /> ...or just drag and drop them over here
+                        <input style="display:inline;" type="file" id="fileupload" name="fileupload" multiple="multiple" /> ...or just drag and drop them over here
                     </div>
                 </div>
                 <div class="progress hide">
@@ -44,10 +44,7 @@
                     {%=file.size%}
                 </td>
                 <td class="text-center">
-                    <form method="delete" action="/backload/uploadhandler?filename={%=file.name%}&objectContext=10" role="form" name="deleteFile" id="deleteFile">
-                        <a title="Delete" href="#" onclick="$('#deleteFile').submit(); return false;"><i class="fa fa-trash-o"></i></a>
-                    </form>
-
+                        <a title="Delete" href="#" onclick="deleteFile('{%=file.delete_url%}'); return false;"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
             {% } %}

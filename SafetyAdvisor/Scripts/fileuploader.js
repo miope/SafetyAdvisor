@@ -3,6 +3,7 @@
 
     var url = '/Backload/UploadHandler';
 
+    // initialize the fileupload plugin
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
@@ -23,11 +24,12 @@
 
         done: function (e, data) {
             $('.progress').addClass('hide');
-            $('#filerows').append(tmpl("template-download", data.result));
+            $('#filerows').find('td:contains(' + data.result.files[0].name + ')').parent().fadeOut('slow', function () { $this.remove() });
+            $(tmpl('template-download', data.result)).hide().prependTo('#filerows').fadeIn('slow');
         }
     });
 
-    $('#fileupload').addClass('fileupload-processing');
+    // let's grab the list of existing files and add them to the table
     $.ajax({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
@@ -35,14 +37,11 @@
         dataType: 'json',
         context: $('#fileupload')[0],
         data: { objectContext: $('#objectContext').val() },
-    }).always(function () {
-        $(this).removeClass('fileupload-processing');
     }).done(function (result) {
-        $(this).fileupload('option', 'done')
-            .call(this, null, { result: result });
+        $('#filerows').hide().html(tmpl('template-download', result)).fadeIn('slow');
     });
 
-
+    // dropzone effects
     $(document).bind('dragover', function (e) {
         var dropZone = $('#dropzone'),
             timeout = window.dropZoneTimeout;
@@ -70,5 +69,18 @@
             dropZone.removeClass('in hover');
         }, 100);
     });
-
 });
+
+var deleteFile = function (deleteUrl) {
+    $.ajax({
+        // Uncomment the following to send cross-domain cookies:
+        //xhrFields: {withCredentials: true},
+        url: deleteUrl,
+        dataType: 'json',
+        method: 'delete'
+    }).done(function (result) {
+        $('#filerows').find('td:contains(' + result.files[0].name + ')').parent().fadeOut('slow', function() { $(this).remove() });
+    }).error(function(result) {
+        alert(result);
+    });
+}
