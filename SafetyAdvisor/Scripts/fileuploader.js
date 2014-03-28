@@ -4,7 +4,7 @@
     var url = '/Backload/UploadHandler';
 
     // let's wire-up the click on delete icon
-    var wireUpDeleteClick = function () {
+    var _wireUpDeleteClick = function () {
         $('.delete-file').click(function (e) {
             e.preventDefault();
             $.ajax({
@@ -39,13 +39,15 @@
             var progress = parseInt(data.loaded / data.total * 100, 10);
             var progressPercent = progress + '%';
             $('#overallbar').css('width', progressPercent).text(progressPercent);
+            if (progress == 100) {
+                $('.progress').addClass('hide');
+            };
         },
 
         done: function (e, data) {
-            $('.progress').addClass('hide');
             $('#filerows').find('td:contains(' + data.result.files[0].name + ')').parent().fadeOut('slow', function () { $(this).remove() });
             $(tmpl('template-download', data.result)).hide().prependTo('#filerows').fadeIn('slow');
-            wireUpDeleteClick();
+            _wireUpDeleteClick();
         }
     });
 
@@ -88,6 +90,6 @@
         data: { objectContext: $('#objectContext').val() },
     }).done(function (result) {
         $('#filerows').hide().html(tmpl('template-download', result)).fadeIn('slow');
-        wireUpDeleteClick();
+        _wireUpDeleteClick();
     });
 });
