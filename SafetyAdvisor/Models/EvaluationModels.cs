@@ -13,6 +13,8 @@ namespace SafetyAdvisor.Models
         public string Caption { get; set; }
         [Required(ErrorMessage="Content is a required field")]
         public string Content { get; set; }
+        [Display(Name="Reactive?")]
+        public bool IsReactive { get; set; }
 
         public int? ParentId { get; set; }
         public EvaluationItem Parent { get; set; }

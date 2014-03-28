@@ -15,6 +15,9 @@
                         @Html.DisplayNameFor(model => model.Content)
                     </th>
                     <th class="text-center">
+                        @Html.DisplayNameFor(model => model.IsReactive)
+                    </th>
+                    <th class="text-center">
                         @Html.DisplayNameFor(model => model.Children)
                     </th>
                     <th class="text-center">Options</th>
@@ -32,6 +35,12 @@
                     </td>
                     <td>
                         @string.Join("", item.Content.Take(75)) ...
+                    </td>
+                    <td class="text-center">
+                        @if (item.IsReactive)
+                        {
+                            <span class="glyphicon glyphicon-ok"></span>
+                        }
                     </td>
                     <td class="text-center">
                         <span class="badge">@item.Children.Count()</span>

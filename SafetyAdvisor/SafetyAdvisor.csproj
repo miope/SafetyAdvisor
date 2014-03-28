@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201403221411435_AddedEvaluationItem.Designer.cs">
       <DependentUpon>201403221411435_AddedEvaluationItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403282113421_ReactiveFieldOnEvaluationItem.cs" />
+    <Compile Include="Migrations\201403282113421_ReactiveFieldOnEvaluationItem.Designer.cs">
+      <DependentUpon>201403282113421_ReactiveFieldOnEvaluationItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -370,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403221411435_AddedEvaluationItem.resx">
       <DependentUpon>201403221411435_AddedEvaluationItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403282113421_ReactiveFieldOnEvaluationItem.resx">
+      <DependentUpon>201403282113421_ReactiveFieldOnEvaluationItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

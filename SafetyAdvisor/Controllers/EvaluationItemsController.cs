@@ -50,7 +50,7 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Caption,Content,ParentId")] EvaluationItem evaluationitem)
+        public ActionResult Create([Bind(Include = "Id,Caption,Content,IsReactive,ParentId")] EvaluationItem evaluationitem)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace SafetyAdvisor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Caption,Content,ParentId")] EvaluationItem evaluationitem)
+        public ActionResult Edit([Bind(Include = "Id,Caption,Content,IsReactive,ParentId")] EvaluationItem evaluationitem)
         {
             if (ModelState.IsValid)
             {
