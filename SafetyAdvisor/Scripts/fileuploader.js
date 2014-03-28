@@ -3,6 +3,7 @@
 
     var url = '/Backload/UploadHandler';
 
+    // let's wire-up the click on delete icon
     var wireUpDeleteClick = function () {
         $('.delete-file').click(function (e) {
             e.preventDefault();
@@ -42,7 +43,7 @@
 
         done: function (e, data) {
             $('.progress').addClass('hide');
-            $('#filerows').find('td:contains(' + data.result.files[0].name + ')').parent().fadeOut('slow', function () { $this.remove() });
+            $('#filerows').find('td:contains(' + data.result.files[0].name + ')').parent().fadeOut('slow', function () { $(this).remove() });
             $(tmpl('template-download', data.result)).hide().prependTo('#filerows').fadeIn('slow');
             wireUpDeleteClick();
         }
@@ -76,6 +77,7 @@
             dropZone.removeClass('in hover');
         }, 100);
     });
+
     // let's grab the list of existing files and add them to the table
     $.ajax({
         // Uncomment the following to send cross-domain cookies:
@@ -86,7 +88,6 @@
         data: { objectContext: $('#objectContext').val() },
     }).done(function (result) {
         $('#filerows').hide().html(tmpl('template-download', result)).fadeIn('slow');
-        // let's wire-up the click on delete icon
         wireUpDeleteClick();
     });
 });
