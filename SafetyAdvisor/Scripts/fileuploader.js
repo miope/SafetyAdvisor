@@ -3,6 +3,23 @@
 
     var url = '/Backload/UploadHandler';
 
+    var wireUpDeleteClick = function () {
+        $('.delete-file').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                // Uncomment the following to send cross-domain cookies:
+                //xhrFields: {withCredentials: true},
+                url: $(this).data('url'),
+                dataType: 'json',
+                method: 'delete'
+            }).done(function (result) {
+                $('#filerows').find('td:contains(' + result.files[0].name + ')').parent().fadeOut('slow', function () { $(this).remove() });
+            }).error(function (result) {
+                alert(result);
+            });
+        });
+    };
+
     // initialize the fileupload plugin
     $('#fileupload').fileupload({
         url: url,
@@ -11,6 +28,7 @@
         autoUpload: true,
         maxFileSize: 10485760,
         uploadTemplateId: null,
+
         start: function (e, data) {
             $('.progress').removeClass('hide');
             $('#overallbar').css('width', '0%');
@@ -26,19 +44,8 @@
             $('.progress').addClass('hide');
             $('#filerows').find('td:contains(' + data.result.files[0].name + ')').parent().fadeOut('slow', function () { $this.remove() });
             $(tmpl('template-download', data.result)).hide().prependTo('#filerows').fadeIn('slow');
+            wireUpDeleteClick();
         }
-    });
-
-    // let's grab the list of existing files and add them to the table
-    $.ajax({
-        // Uncomment the following to send cross-domain cookies:
-        //xhrFields: {withCredentials: true},
-        url: url,
-        dataType: 'json',
-        context: $('#fileupload')[0],
-        data: { objectContext: $('#objectContext').val() },
-    }).done(function (result) {
-        $('#filerows').hide().html(tmpl('template-download', result)).fadeIn('slow');
     });
 
     // dropzone effects
@@ -69,18 +76,17 @@
             dropZone.removeClass('in hover');
         }, 100);
     });
-});
-
-var deleteFile = function (deleteUrl) {
+    // let's grab the list of existing files and add them to the table
     $.ajax({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: deleteUrl,
+        url: url,
         dataType: 'json',
-        method: 'delete'
+        context: $('#fileupload')[0],
+        data: { objectContext: $('#objectContext').val() },
     }).done(function (result) {
-        $('#filerows').find('td:contains(' + result.files[0].name + ')').parent().fadeOut('slow', function() { $(this).remove() });
-    }).error(function(result) {
-        alert(result);
+        $('#filerows').hide().html(tmpl('template-download', result)).fadeIn('slow');
+        // let's wire-up the click on delete icon
+        wireUpDeleteClick();
     });
-}
+});
