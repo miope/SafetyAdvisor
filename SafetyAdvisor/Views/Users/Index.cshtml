@@ -42,10 +42,10 @@
                             @item.UserName
                         </td>
                         <td>
-                            @item.FullName
+                            <a title="Edit" href="@Url.Action("edit", "Users", new { id = item.Id })">@item.FullName</a>
                         </td>
                         <td>
-                            @item.Email
+                            <a title="Edit" href="mailto:@item.Email">@item.Email</a>
                         </td>
                         <td>
                             @item.Company
