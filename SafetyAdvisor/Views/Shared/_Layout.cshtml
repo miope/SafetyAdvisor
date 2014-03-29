@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SafetyAdvisor</title>
+    <title>@ViewBag.Title - Sichereits-Berater</title>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -19,12 +19,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="@Url.Action("index", "home")"><i class="fa fa-ambulance fa"></i> SafetyAdvisor</a>
+                <a class="navbar-brand" href="@Url.Action("index", "home")"><i class="fa fa-ambulance fa"></i> Sichereits-Berater</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li @Html.CssClassIfControllerAndAction("home", "about", "active")>@Html.ActionLink("About", "about", "home")</li>
-                    <li @Html.CssClassIfControllerAndAction("home", "contact", "active")>@Html.ActionLink("Contact", "contact", "home")</li>
+                    <li @Html.CssClassIfControllerAndAction("home", "about", "active")>@Html.ActionLink("Über das Projekt", "about", "home")</li>
+                    <li @Html.CssClassIfControllerAndAction("home", "contact", "active")>@Html.ActionLink("Kontakt", "contact", "home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
