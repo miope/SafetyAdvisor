@@ -22,6 +22,11 @@ namespace SafetyAdvisor.Controllers
             return View();
         }
 
+        public ActionResult Consortium()
+        {
+            return View();
+        }
+
         public ActionResult Repository()
         {
             return View();

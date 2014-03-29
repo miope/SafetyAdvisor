@@ -353,6 +353,7 @@
     <Content Include="Views\EvaluationItems\_ListEvaluationItems.cshtml" />
     <Content Include="Views\EvaluationItems\_ParentBreadcrumbs.cshtml" />
     <Content Include="Views\EvaluationItems\_EvaluationItemFiles.cshtml" />
+    <Content Include="Views\Home\Consortium.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>
