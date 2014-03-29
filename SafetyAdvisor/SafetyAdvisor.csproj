@@ -197,6 +197,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ContactFormModels.cs" />
     <Compile Include="Models\EvaluationModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\UsersViewModels.cs" />
