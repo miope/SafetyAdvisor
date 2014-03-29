@@ -29,7 +29,18 @@ namespace SafetyAdvisor.Controllers
 
         public ActionResult Contact()
         {
-            return View();
+            var _model = new ContactForm();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var _user = new ApplicationDbContext().Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                if (_user != null) {
+                    _model.Name = _user.FullName;
+                    _model.Email = _user.Email;
+                }
+            }
+
+            return View(_model);
         }
 
         [HttpPost]
