@@ -9,17 +9,19 @@
         <ul class="nav navbar-nav navbar-right">
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i>&nbsp;&nbsp;Module<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-medkit"></i>&nbsp;&nbsp;Module<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>@Html.ActionLink("Safety-Check", "", "")</li>
-                    <li>@Html.ActionLink("Safety-Risk Map", "", "")</li>
+                    <li>@Html.ActionLink("Safety-Risk Map", "index", "safetyriskmap")</li>
                     <li>@Html.ActionLink("Safety-Concepts", "", "")</li>
                     <li>@Html.ActionLink("Safety-Evaluation", "", "")</li>
                     <li>@Html.ActionLink("Kommunikation", "", "")</li>
                 </ul>
             </li>
 
-            <li class="dropdown">
+            @if(User.CanEditContent() || User.CanAccessSiteSettings())
+            {
+                <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i>&nbsp;&nbsp;Settings<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     @if (User.CanEditContent())
@@ -32,6 +34,7 @@
                     }
                 </ul>
             </li>
+            }
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;&nbsp;@User.Identity.Name <b class="caret"></b></a>
