@@ -202,6 +202,8 @@
     <Compile Include="Models\ContactFormModels.cs" />
     <Compile Include="Models\EvaluationModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SafetyConceptModel.cs" />
+    <Compile Include="Models\SafetyConceptsViewModel.cs" />
     <Compile Include="Models\UsersViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -357,6 +359,7 @@
     <Content Include="Views\Home\Consortium.cshtml" />
     <Content Include="Views\SafetyRiskMap\Index.cshtml" />
     <Content Include="Views\SafetyConcepts\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SafetyConceptModel.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>

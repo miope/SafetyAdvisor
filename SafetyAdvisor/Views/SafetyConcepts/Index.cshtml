@@ -1,4 +1,7 @@
-﻿@{
+﻿@using SafetyAdvisor.Models
+@model SafetyConceptsViewModel
+
+@{
     ViewBag.Title = "Safety-Concepts";
 }
 
@@ -28,10 +31,10 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="preventive">
-                    <h3>here comes the list of preventive concepts</h3>
+                    @Html.DisplayFor(m => m.PreventiveSafetyConcepts)
                 </div>
                 <div class="tab-pane fade" id="reactive">
-                    <h3>and here comes the list of reactive ones...</h3>
+                    @Html.DisplayFor(m => m.ReactiveSafetyConcepts)
                 </div>
             </div>
         </div>
