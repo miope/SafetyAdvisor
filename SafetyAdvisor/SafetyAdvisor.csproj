@@ -177,6 +177,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ActionResultExtensions.cs" />
+    <Compile Include="Helpers\BackloadFileManager.cs" />
     <Compile Include="Helpers\EntityFrameworkExtenstions.cs" />
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Helpers\IdentityExtenstions.cs" />

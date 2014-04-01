@@ -4,11 +4,37 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
+using SafetyAdvisor.Helpers;
+
 namespace SafetyAdvisor.Models
 {
     public class SafetyConceptModel
     {
-        public EvaluationItem EvaluationItem { get; set; }
-        public IEnumerable<string> Files { get; set; }
+        private EvaluationItem _evaluationItem;
+
+        public IEnumerable<string> Files { get; private set; }
+
+        public EvaluationItem EvaluationItem
+        {
+            get
+            {
+                return _evaluationItem;
+            }
+            set
+            {
+                _evaluationItem = value;
+                this.Files = BackloadFileManager.GetFiles(_evaluationItem.Id.ToString());
+            }
+        }
+
+        public SafetyConceptModel()
+        {
+            this.Files = new List<string>();
+        }
+
+        public SafetyConceptModel(EvaluationItem item)
+        {
+            this.EvaluationItem = item;
+        }
     }
 }

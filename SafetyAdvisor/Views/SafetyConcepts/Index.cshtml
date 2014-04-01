@@ -23,6 +23,7 @@
             <h4>Tabelle 2: Den Szenarien zugeordnete präventive und reaktive Safety-Concepts</h4>
         </div>
     </div>
+    <hr />
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-tabs">
@@ -31,10 +32,14 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="preventive">
-                    @Html.DisplayFor(m => m.PreventiveSafetyConcepts)
+                    <div class="panel-group" id="accordionPreventive">
+                        @Html.DisplayFor(m => m.PreventiveSafetyConcepts, new { ParentId = "accordionPreventive" })
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="reactive">
-                    @Html.DisplayFor(m => m.ReactiveSafetyConcepts)
+                    <div class="panel-group" id="accordionReactive">
+                        @Html.DisplayFor(m => m.ReactiveSafetyConcepts, new { ParentId = "accordionReactive" })
+                    </div>
                 </div>
             </div>
         </div>

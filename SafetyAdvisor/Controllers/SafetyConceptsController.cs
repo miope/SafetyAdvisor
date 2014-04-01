@@ -1,9 +1,10 @@
-﻿using SafetyAdvisor.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
+using SafetyAdvisor.Models;
 
 namespace SafetyAdvisor.Controllers
 {
@@ -26,11 +27,7 @@ namespace SafetyAdvisor.Controllers
         public ActionResult Index()
         {
             var _concepts = db.EvaluationItems.Where(ei => !ei.Children.Any())
-                                              .Select(ei => new SafetyConceptModel()
-                                              {
-                                                  EvaluationItem = ei,
-                                                  Files = new List<string>() { "attachment.pdf" }
-                                              });
+                                              .Select(ei => new SafetyConceptModel() { EvaluationItem = ei });
 
             var _model = new SafetyConceptsViewModel()
             {
