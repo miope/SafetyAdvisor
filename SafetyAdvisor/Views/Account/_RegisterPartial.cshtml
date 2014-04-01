@@ -3,8 +3,8 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <p>describe what ever is needed when registering for the new account</p>
+    <h4>Registrierung eines neuen Sichereits-Berater Kontos</h4>
+    <p>Hier können Sie ein neues Sichereits-Berater Konto registrieren. Alle Felder sind Pflichtfelder.</p>
     <hr />
     @Html.ValidationSummary()
     <div class="form-group">
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-4">
-            <input type="submit" class="btn btn-primary" value="Register" />
+            <input type="submit" class="btn btn-primary" value="Registrieren" />
         </div>
     </div>
 }

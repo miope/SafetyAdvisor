@@ -1,7 +1,7 @@
 ﻿@model SafetyAdvisor.Models.LoginViewModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Einlogen";
 }
 
 <div class="container">
@@ -18,8 +18,8 @@
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    <h4>Use a local account to log in.</h4>
-                    <p>describe what ever is needed when logging in with local account</p>
+                    <h4>Loggen Sie sich mit Ihrem Sichereits-Berater Konto ein</h4>
+                    <p></p>
                     <hr />
                     @Html.ValidationSummary()
                     <div class="form-group">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Log in" class="btn btn-primary" /> or @Html.ActionLink("Register", "Register") if you still don't have a SafetyAdvisor account.
+                            <input type="submit" value="Log in" class="btn btn-primary" /> oder @Html.ActionLink("registrieren", "register") Sie sich falls Sie noch kein Sichereits-Berater Konto haben.
                         </div>
                     </div>
                 }

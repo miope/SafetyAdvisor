@@ -7,53 +7,53 @@ namespace SafetyAdvisor.Models
 {
     public class ChagePasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage="Jetziges Kennwort ist ein Pflichtfeld.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Jetziges Kennwort")]
         public string OldPassword { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage="Neues Kennwort ist ein Pflichtfeld.")]
+        [StringLength(100, ErrorMessage = "Das {0} muss zumindest {2} Zeichen lang sein.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Neues Kennwort")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Neues Kennwort wiederholen")]
+        [Compare("NewPassword", ErrorMessage = "Die Kennwörter stimmen nich über ein.")]
         public string ConfirmPassword { get; set; }
     }
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        [Required(ErrorMessage="Benutzername ist ein Pflichtfeld.")]
+        [Display(Name = "Benutzername")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Kennwort ist ein Pflichtfeld.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Kennwort")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me on this computer")]
+        [Display(Name = "Auf diesem Rechner eingelogt bleiben")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        [Required(ErrorMessage="Benutzername ist ein Pflichtfeld.")]
+        [Display(Name = "Benutzername")]
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage="Kennwort ist ein Pflichtfeld.")]
+        [StringLength(100, ErrorMessage = "Das {0} muss mindestens {2} Zeichen lang sein.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Kennowort")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Kennwort wiederholen")]
+        [Compare("Password", ErrorMessage = "Die Kennwörter stimment nicht überein.")]
         public string ConfirmPassword { get; set; }
     }
 

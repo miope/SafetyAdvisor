@@ -8,18 +8,18 @@ namespace SafetyAdvisor.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        [Display(Name = "First name")]
+        [Display(Name = "Vorname")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last name")]
+        [Display(Name = "Nachname")]
         public string LastName { get; set; }
         
-        [EmailAddress]
+        [EmailAddress(ErrorMessage="Email Adresse ist ungültig.")]
         public string Email { get; set; }
         public string Company { get; set; }
 
         [NotMapped]
-        [Display(Name="Full name")]
+        [Display(Name="Name")]
         public string FullName
         {
             get
