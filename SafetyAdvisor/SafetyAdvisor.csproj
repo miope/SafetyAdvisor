@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EvaluationItemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SafetyConceptsController.cs" />
     <Compile Include="Controllers\SafetyRiskMapController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -355,6 +356,7 @@
     <Content Include="Views\EvaluationItems\_EvaluationItemFiles.cshtml" />
     <Content Include="Views\Home\Consortium.cshtml" />
     <Content Include="Views\SafetyRiskMap\Index.cshtml" />
+    <Content Include="Views\SafetyConcepts\Index.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>
