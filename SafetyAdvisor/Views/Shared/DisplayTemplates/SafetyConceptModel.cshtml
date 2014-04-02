@@ -1,4 +1,5 @@
-﻿@model SafetyAdvisor.Models.SafetyConceptModel
+﻿@using SafetyAdvisor.Helpers
+@model SafetyAdvisor.Models.SafetyConceptModel
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -29,7 +30,7 @@
                 <div class="tab-pane fade" id="@("attachments" + Model.EvaluationItem.Id)">
                     @foreach (var file in Model.Files)
                     {
-                        <p><a href="#" title="@file"><i class="fa fa-file-text"></i>&nbsp;@file</a></p>
+                        <p><a href="@BackloadFileManager.GetDownloadUrl(file, Model.EvaluationItem.Id)" title="@file" download="@file"><i class="fa fa-file-text"></i>&nbsp;@file</a></p>
                     }
                 </div>
             </div>

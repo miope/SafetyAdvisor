@@ -23,7 +23,7 @@ namespace SafetyAdvisor.Models
             set
             {
                 _evaluationItem = value;
-                this.Files = BackloadFileManager.GetFiles(_evaluationItem.Id.ToString());
+                this.Files = BackloadFileManager.GetFiles(_evaluationItem.Id);
             }
         }
 

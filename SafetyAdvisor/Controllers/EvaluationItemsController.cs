@@ -129,6 +129,7 @@ namespace SafetyAdvisor.Controllers
         {
             EvaluationItem evaluationitem = db.EvaluationItems.Find(id);
             db.DeleteRecursive(evaluationitem);
+            BackloadFileManager.DeleteAllFiles(evaluationitem.Id);
             db.SaveChanges();
             return RedirectToAction("Index").Alert(AlertType.Success, "Evaluation item has been deleted.");
         }
