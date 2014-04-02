@@ -121,6 +121,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
+/[Pp]roperties/[Pp]ublish[Pp]rofiles
 
 # NuGet Packages Directory
 packages/
