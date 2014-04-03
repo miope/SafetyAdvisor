@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -376,6 +377,7 @@
     <Content Include="Views\SafetyRiskMap\Index.cshtml" />
     <Content Include="Views\SafetyConcepts\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SafetyConceptModel.cshtml" />
+    <Content Include="Views\Shared\_SafetyConceptModel.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>
