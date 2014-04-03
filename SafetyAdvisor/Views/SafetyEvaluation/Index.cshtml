@@ -59,7 +59,50 @@
                     </p>
                 </div>
                 <div class="tab-pane fade" id="tab3">
-                    here comes the content for Tab 3
+                    <h2>Quantifizierung der Ursache-Wirkungsbeziehungen der Risk-Evaluation Map mittels Monte-Carlo-Simulation (Ist-Zustand)</h2>
+                    <p>Da im Fokus der hier vorgestellten Methodik zur Bewertung von Risiken hypothetische Wirkungen auf Unternehmensprozesse stehen, sind diese per se mit Unsicherheit behaftet. Daher werden für alle risikobehafteten Größen Verteilungsfunktionen an Stelle von festen Werten angenommen. Dies erhöht die Objektivität der getroffenen Annahmen da ein gewisses Maß an Unsicherheit in den Schätzungen abgebildet werden kann. Jede geschätzte Kennzahl wird durch eine Verteilungsfunktion beschrieben, die einzelnen Werten eines Intervalls eine Eintrittswahrscheinlichkeit zuordnet.</p>
+                    <p>Hierdurch ergeben sich Einzelverteilungen einer jeden geschätzten oder berechneten Risiko-Wirkung. Alle Einzelverteilungen werden mittels Monte-Carlo-Simulation zu einer Gesamtverteilung der Spitzenkennzahl aggregiert. Zu diesem Zweck werden für jede Kennzahl mittels der festgelegten Verteilungen Zufallswerte ermittelt und über die Ursache-Wirkungsbeziehungen bis zur Spitzenkennzahl aggregiert. Der sich ergebende Wert wird zwischengespeichert. Durch hinreichend häufiges Durchlaufen der Simulation ergibt sich eine Häufigkeitsverteilung der Spitzenkennzahl. Dieses kann zur Analyse des Risikos mit gängigen Risikomaßen genutzt werden.</p>
+                    <p class="text-center">
+                        <img src="/content/images/abb8.png" title="Darstellung eines Laufs der Monte-Carlo-Simulation inkl. der Verteilungsfunktionen im Ist-Zustand" />
+                    </p>
+                    <p>Das Ergebnis der Monte-Carlo Simulation ist eine Verteilung der aggregierten Risiko-Wirkung (hier: Kosten des Ausfalls der Wirkstoffproduktion)</p>
+                    <ul>
+                        <li>Im Mittel wird ein Produktionsausfall von 1 bis 26 Wochen im Schnitt zu Gesamtkosten von 863 T€ führen.</li>
+                        <li>Zu 80% werden die Kosten zwischen 346 T€ und 1,36 Mio. € liegen</li>
+                        <li>Der Value-at-Risk* liegt bei € 1,46 Mio.</li>
+                    </ul>
+                    <p class="text-center">
+                        <img src="/content/images/abb9.png" title="Quantifizierung der Ursache-Wirkungsbeziehungen" />
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab4">
+                    <h2>Ableitung von Veränderungen des Ist-Zustandes aufgrund von Sicherungsmaßnahmen (Soll-Zustand)</h2>
+                    <ul>
+                        <li>Anhand der beschriebenen ersten drei Schritte ist es möglich ein Risiko, hier z.B. das eines Produktionsausfalls, zu bewerten. Die vorgestellte Systematik darüber hinaus zur Bewertung der Eignung von Sicherungsmaßnahmen gegenüber dem betrachteten Risiko erweitert werden. </li>
+                        <li>Eine mögliche Sicherungsmaßnahme ist die Erhöhung der Bestände auf allen Stufen der Medikamentenversorgungskette. Hier explizit die Erhöhung der Lagerreichweite des Arzneimittelherstellers.</li>
+                        <li>Um diese Sicherungsmaßnahmen bewerten zu können, wird für die Kennzahl, welche durch die Sicherungsmaßnahme beeinflusst wird, ein Soll-Zustand definiert. Hier die Erhöhung der Lagerreichweite des Herstellers um vier Wochen auf minimal 16 und maximal 24 Wochen.</li>
+                        <li>Anschließend wird die Quantifizierung der Ursache-Wirkungskette mit dem veränderten Soll-Zustand wiederholt.</li>
+                    </ul>
+                    <p class="text-center">
+                        <img src="/content/images/abb10.png" title="Eingabemaske 'Lagerrecihweite Hersteller'" />
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab5">
+                    <h2>Vergleich der Kosten der Sicherungsmaßnahme mit der Veränderung zwischen Ist- und Soll-Zustand</h2>
+                    <p>Aufgrund der Erhöhung der Lagerreichweite des Herstellers kommt es zu folgenden Veränderungen der Häufigkeitsverteilung der Kosten des Produktionsausfalls</p>
+                    <ul>
+                        <li>Die mittleren Kosten eines Produktionsausfalls sinken aufgrund der Maßnahme um 21% oder 183T€ von durchschnittlich 862T€ auf durchschnittlich 679T€</li>
+                        <li>Der „Value at risk“ sinkt von 1,46 Mio. € auf 1,28 Mio. € (der „Value at risk“ ist der Verlust, der zu 95% nicht überschritten wird).</li>
+                    </ul>
+                    <p class="text-center">
+                        <img src="/content/images/abb11.png" title="Darstellung des 'value at risk'" />
+                    </p>
+                    <ul>
+                        <li>Eine Entscheidung, ob die Einführung der Sicherungsmaßnahmen angemessen erscheint, hängt sowohl von den Konsequenzen des Risikos als auch der Wahrscheinlichkeit des Risikoeintritts ab. Im vorliegenden Fall beschränkte man sich auf die Berechnung der Konsequenzen.</li>
+                        <li>Um eine sinnvolle Entscheidung treffen zu können, müssen die Kosten der Sicherungs-maßnahme und die Konsequenzen des Risikos ins Verhältnis zur  Wahrscheinlichkeit des Risikoeintritts gesetzt werden.</li>
+                        <li>Die Kosten für eine Erweiterung der Lagerreichweite um 4 Monate wurden im vorliegenden Beispiel folgendermaßen geschätzt:</li>
+                        <li>Aus dieser Berechnung kann abgeleitet werden, dass die Sicherungsmaßnahme zur Reduktion der Ausfallkosten um durchschnittlich 183T€ sinnvoll ist, wenn es mit einer Wahrscheinlichkeit von größer als 30% zu einem Ausfall kommen wird.</li>
+                    </ul>
                 </div>
             </div>
         </div>
