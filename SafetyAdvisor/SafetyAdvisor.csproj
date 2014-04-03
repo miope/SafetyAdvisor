@@ -172,6 +172,7 @@
     <Compile Include="Controllers\EvaluationItemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SafetyConceptsController.cs" />
+    <Compile Include="Controllers\SafetyEvaluationController.cs" />
     <Compile Include="Controllers\SafetyRiskMapController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -378,6 +379,7 @@
     <Content Include="Views\SafetyConcepts\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SafetyConceptModel.cshtml" />
     <Content Include="Views\Shared\_SafetyConceptModel.cshtml" />
+    <Content Include="Views\SafetyEvaluation\Index.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>

@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Safety-Evaluation";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                @ViewBag.Title
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Arzneimittelhersteller, wie alle anderen Unternehmen auch, stehen vor der Herausforderung, ihre langfristige Existenz, durch ein geeignetes Risikomanagement zu. Allerdings muss das Risikomanagement wirtschaftlichen Kriterien gerecht werden. Eine Ergreifung von Maßnahmen der Risikobewältigung gegenüber allen erdenklichen Bedrohungen würde unter Umständen die Gefahr von Versorgungsengpässen verringern. Die hierzu notwendigen Kosten würden aber auch die Wettbewerbsfähigkeit des Arzneimittelherstellers nachhaltig schwächen und ggf. langfristig Lieferausfälle aufgrund von Unternehmensaufgaben provozieren.</p>
+            <p>Grundvoraussetzung für eine wirtschaftliche Sicherstellung der Arzneimittelversorgung ist die Bewertung von Risiken und möglicher Strategien der Risikobewältigung. Neben der oftmals nur subjektiv möglichen Abschätzung der Eintrittswahrscheinlichkeit eines Risikos, sind auch dessen Schadensausmaß, höchst unsicher. Bestehende Ansätze der quantitativen Bewertung von Risiko-Wirkungen fokussieren zudem die monetär-bewertbare Größen und lassen nicht-quantifizierbare und nicht monetär-bewertbare Auswirkungen außen vor.</p>
+            <p>Im Folgenden wird eine Methodik der Bewertung des Schadensausmaßes vorgestellt, welche sowohl die Unsicherheiten in den Risiko-Wirkungen berücksichtigt, als auch die Betrachtung nicht-quantitativer und nicht monetär-bewertbarer Größen integriert. Die Vorstellung erfolgt exemplarisch anhand der Bewertung des Risikos eines Ausfalls in der Produktion eines chemisch hergestellten Wirkstoffes für ein Klinikprodukt und einer möglichen Sicherungsmaßnahmen.</p>
+            <p>Das prinzipielle Vorgehen gliedert sich in fünf Schritte:</p>
+            <ol>
+                <li>Erarbeitung einer Risk-Evaluation Map</li>
+                <li>Definition von Kennzahlen</li>
+                <li>Quantifizierung der Ursache-Wirkungsbeziehungen der Risk-Evaluation Map mittels Monte-Carlo-Simulation (Ist-Zustand)</li>
+                <li>Ableitung von Veränderungen des Ist-Zustandes aufgrund von Sicherungsmaßnahmen (Soll-Zustand)</li>
+                <li>Vergleich der Kosten der Sicherungsmaßnahme mit der Veränderung der quantifizierten Ursache-Wirkungsbeziehungen zwischen Ist- und Soll-Zustand</li>
+            </ol>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Erarbeitung</a></li>
+                <li><a href="#tab2" data-toggle="tab">Definition</a></li>
+                <li><a href="#tab3" data-toggle="tab">Quantifizierung</a></li>
+                <li><a href="#tab4" data-toggle="tab">Ableitung</a></li>
+                <li><a href="#tab5" data-toggle="tab">Vergleich</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                    <h2>Erarbeitung einer Risk-Evaluation Map</h2>
+                    <p>In einem ersten Schritt müssen die Risiko-Wirkungen des zu bewertenden Risiko-Ereignisses auf die Unternehmensfaktoren auf qualitativer Basis identifiziert werden. Risiko-Wirkungen können sowohl die internen Unternehmensprozesse als auch die Beziehungen zu Kunden, Lieferanten und Wettbewerbern betreffen. Auch ist es erforderlich, dass die Kausalbeziehungen zwischen unterschiedlichen Risiko-Wirkungen berücksichtigt werden. Ergebnis dessen ist eine Risk-Evaluation-Map, welche qualitativ alle Risiko-Wirkungen des Risiko-Ereignisses und deren Kausalbeziehungen darstellt.</p>
+                    <p>Ausgangpunkt hierfür sind die im Rahmen des Projektes „SafeMed“ erarbeiteten Prozessketten, welche die internen Abläufe der Akteure der Medikamentenversorgungskette wiedergeben. Hierbei werden neben monetär-bewertbaren auch nicht-monetär-bewertbare und nicht-quantifizierbare Risiko-Wirkungen integriert.</p>
+                    <p class="text-center">
+                        <img src="/content/images/abb6.png" title="Risk-Evaluation Map eines Ausfalls der Wirkstoffproduktion" />
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab2">
+                    <h2>Definition von Kennzahlen</h2>
+                    <p>Für jede Risiko-Wirkung werden im zweiten Schritt Kennzahlen ausgewählt, welche die Wirkung des Risiko-Eintritts widerspiegeln. Hierbei sind zum Einen Kennzahlen zu berücksichtigen, welche Wirkungen beschreiben die erst durch das Risiko entstehen. Ein Beispiel sind spezifische Kosten, welche aufgrund des Risiko-Eintritts anfallen. Zum Anderen ist es erforderlich mögliche Veränderungen im Unternehmen und den relevanten Unternehmensfaktoren aufgrund des Risiko-Eintritts abzubilden. Dies kann beispielsweise ein Rückgang der Kundenzufriedenheit oder ein Einbruch in den Produktionsmengen sein.</p>
+                    <p>Risiko-Wirkungen können entweder direkt geschätzt (z.B. die Herstellkosten einer nicht brauchbaren Charge) oder auf Basis von Ursache-Wirkungsbeziehungen mit vorgelagerten Stufen errechnet werden (die Dauer einer Lieferunfähigkeit ergibt sich aus der Dauer der Neuproduktion abzgl. der Lagerreichweite). Auch ist es erforderlich, zur Berechnung einer Risiko-Wirkung neben vorgelagerten Wirkungen u.U. auch unabhängige Kennzahlen zu verwenden (z.B. ist zur Berechnung versäumter Umsatzerlöse einer Lieferunfähigkeit neben der Dauer auch der durchschnittliche Umsatz für eine vergleichbare Zeitspanne erforderlich).</p>
+                    <p>Abschließend werden alle Risiko-Wirkungen in eine aggregierten Spitzenkennzahl (oder aggregierte Risikowirkung) überführt. Diese dient als Analysemaßstab, um das Risiko mit Hilfe gängiger Risikomaße (Mittelwert, Perzentile, Value-at-Risk) zu beschreiben.</p>
+                    <p>Aufgrund des Ausfalls in der Wirkstoffproduktion kann die Produktion des Arzneimittels. Für welche der Wirkstoff gedacht war, nicht durchgeführt werden. Um die Risiko-Wirkung <strong>Ausfall der Arzneimittelproduktion</strong> (als Dauer in Wochen) beschreiben zu können sind vier Kennzahlen erforderlich, welche hierauf einen Einfluss ausüben:</p>
+                    <p class="text-center">
+                        <img src="/content/images/tbl4.png" title="Kennzahlen zur Beschreibung des Risikos eines Ausfalls in der Wirkstoffproduktion" />
+                    </p>
+                    <p>Unabhängige Kennzahlen sind dadurch gekennzeichnet, dass Sie sich nicht unmittelbar aus dem Risiko-Ereignis abgeleitet werden.</p>
+                    <p class="text-center">
+                        <img src="/content/images/abb7.png" title="Konkretisierung der Risk-Evaluation Map mittels Kennzahlen" />
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="tab3">
+                    here comes the content for Tab 3
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
