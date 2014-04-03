@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\SafetyCommunicationController.cs" />
     <Compile Include="Controllers\EvaluationItemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SafetyConceptsController.cs" />
@@ -296,12 +297,19 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Images\abb1.png" />
+    <Content Include="Content\Images\abb10.png" />
+    <Content Include="Content\Images\abb11.png" />
     <Content Include="Content\Images\abb4.png" />
     <Content Include="Content\Images\abb5.png" />
+    <Content Include="Content\Images\abb6.png" />
+    <Content Include="Content\Images\abb7.png" />
+    <Content Include="Content\Images\abb8.png" />
+    <Content Include="Content\Images\abb9.png" />
     <Content Include="Content\Images\andreas.aschenbruecker.jpg" />
     <Content Include="Content\Images\michael.loescher.jpg" />
     <Content Include="Content\Images\sabine.troppens.jpg" />
     <Content Include="Content\Images\tbl2.png" />
+    <Content Include="Content\Images\tbl4.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -380,6 +388,7 @@
     <Content Include="Views\Shared\DisplayTemplates\SafetyConceptModel.cshtml" />
     <Content Include="Views\Shared\_SafetyConceptModel.cshtml" />
     <Content Include="Views\SafetyEvaluation\Index.cshtml" />
+    <Content Include="Views\SafetyCommunication\Index.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>
