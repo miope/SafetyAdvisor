@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\SafetyCheckController.cs" />
     <Compile Include="Controllers\SafetyCommunicationController.cs" />
     <Compile Include="Controllers\EvaluationItemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="Models\ContactFormModels.cs" />
     <Compile Include="Models\EvaluationModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SafetyCheckViewModel.cs" />
     <Compile Include="Models\SafetyConceptModel.cs" />
     <Compile Include="Models\SafetyConceptsViewModel.cs" />
     <Compile Include="Models\UsersViewModels.cs" />
@@ -389,6 +391,9 @@
     <Content Include="Views\Shared\_SafetyConceptModel.cshtml" />
     <Content Include="Views\SafetyEvaluation\Index.cshtml" />
     <Content Include="Views\SafetyCommunication\Index.cshtml" />
+    <Content Include="Views\SafetyCheck\Index.cshtml" />
+    <Content Include="Views\SafetyCheck\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectSafetyConceptEditorViewModel.cshtml" />
     <None Include="Web.Backload.Default.config" />
     <None Include="Web.Backload.xsd" />
   </ItemGroup>
