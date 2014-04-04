@@ -29,9 +29,22 @@
         <hr />
         <div class="row">
             <div class="col-lg-12">
-                <button class="btn btn-default pull-left @(Model.CanGoPrev() ? "" : "disabled")" type="submit" value="Previous" name="prev"><i class="glyphicon glyphicon-arrow-left"></i> Zurück</button>
+                <button class="btn btn-default pull-left @(Model.CanGoPrev() ? "" : "disabled")" value="Previous" name="prev" id="prev"><i class="glyphicon glyphicon-arrow-left"></i> Zurück</button>
                 <button class="btn btn-primary pull-right @(Model.CanGoNext() ? "" : "disabled")" type="submit" value="Next" name="next">Weiter <i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
         </div>
     }
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(function () {
+            $('#prev').click(function (e) {
+                e.preventDefault();
+                parent.history.back();
+            });
+        });
+
+    </script>
+}
