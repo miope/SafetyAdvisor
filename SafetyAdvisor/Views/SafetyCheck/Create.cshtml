@@ -1,10 +1,14 @@
-﻿@model IEnumerable<SafetyAdvisor.Models.SelectSafetyConceptEditorViewModel>
+﻿@using SafetyAdvisor.Helpers
+@model SafetyAdvisor.Models.SafetyCheckViewModel
 
 @{
     ViewBag.Title = "Safety-Check: neuer Check!";
 }
 
 <div class="container">
+
+    @Html.RenderAlerts()
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">@ViewBag.Title</h1>
@@ -17,15 +21,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel-group" id="accordion">
-                    @Html.EditorFor(m => m, new { ParentId = "accordion" })
+                    @Html.EditorFor(m => m.PreviousItems, new { Hidden = true })
+                    @Html.EditorFor(m => m.CurrentItems, new { ParentId = "accordion" })
                 </div>
             </div>
         </div>
         <hr />
         <div class="row">
             <div class="col-lg-12">
-                <button class="btn btn-default pull-left" type="submit" value="Previous" name="parents"><i class="glyphicon glyphicon-arrow-left"></i> Zurück</button>
-                <button class="btn btn-primary pull-right" type="submit" value="Next" name="children">Weiter <i class="glyphicon glyphicon-arrow-right"></i></button>
+                <button class="btn btn-default pull-left" type="submit" value="Previous" name="prev"><i class="glyphicon glyphicon-arrow-left"></i> Zurück</button>
+                <button class="btn btn-primary pull-right" type="submit" value="Next" name="next">Weiter <i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
         </div>
     }

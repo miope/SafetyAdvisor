@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using SafetyAdvisor.Helpers;
 using SafetyAdvisor.Models;
 
 namespace SafetyAdvisor.Controllers
@@ -34,7 +35,9 @@ namespace SafetyAdvisor.Controllers
         // GET: /safetycheck/create
         public ActionResult Create()
         {
-            var _model = GetModel(null, true);
+            var _model = new SafetyCheckViewModel();
+            _model.PreviousItems = null;
+            _model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => ei.Parent == null));
             return View(_model);
         }
 
@@ -42,44 +45,37 @@ namespace SafetyAdvisor.Controllers
         // POST: /safetycheck/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IEnumerable<SelectSafetyConceptEditorViewModel> items)
+        public ActionResult Create(SafetyCheckViewModel model)
         {
-            bool _getChildren = Request.Form.AllKeys.Contains("children");
-            IEnumerable<SelectSafetyConceptEditorViewModel> _model;
-            if (_getChildren)
+            var _previousIds = model.GetPreviousItemsIds();
+            var _currentIds = model.GetCurrentItemsIds();
+            var _selectedIds = model.GetCurrentlySelected().Select(cs => cs.Id);
+
+            bool _next = Request.Form.AllKeys.Contains("next");
+
+            if (_next)
             {
-                _model = GetModel(items.Where(m => m.Selected).Select(m => m.Id), true);
+                if (!model.GetCurrentlySelected().Any())
+                {
+                    model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _currentIds.Contains(ei.Id)));
+                    return View(model).Alert(AlertType.Danger, "Sie müssen zumindest einen Item auswählen!");
+                }
+
+                model.PreviousItems = model.CurrentItems;
+                model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _selectedIds.Contains(ei.ParentId.Value)));
             }
-            else
-            {
-                _model = GetModel(items.Select(m => m.Id), false);
-            }
-            return View(_model);
+
+            return View(model);
+
         }
 
-        private IEnumerable<SelectSafetyConceptEditorViewModel> GetModel(IEnumerable<int> selected, bool children)
+        private IEnumerable<SelectSafetyConceptEditorViewModel> GetModel(IEnumerable<EvaluationItem> evalItems)
         {
-            var _filter = children == true ? GetChildren(selected) : GetParents(selected);
-            var _model = _filter.Select(ei => new SelectSafetyConceptEditorViewModel()
+            return evalItems.Select(ei => new SelectSafetyConceptEditorViewModel()
             {
                 Id = ei.Id,
                 EvaluationItem = ei
-            });
-
-            return _model;
+            }).ToList();
         }
-
-        private IEnumerable<EvaluationItem> GetChildren(IEnumerable<int> ids)
-        {
-            var _result = ids == null ? db.EvaluationItems.Where(ei => ei.Parent == null) : db.EvaluationItems.Where(ei => ids.Contains(ei.ParentId.Value));
-            return _result;
-        }
-
-        private IEnumerable<EvaluationItem> GetParents(IEnumerable<int> ids)
-        {
-            var _result = db.EvaluationItems.Where(ei => ids.Contains(ei.Id)).Select(ei => ei.Parent).Distinct();
-            return _result;
-        }
-
     }
 }

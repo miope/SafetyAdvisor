@@ -1,14 +1,23 @@
 ﻿@model SafetyAdvisor.Models.SelectSafetyConceptEditorViewModel
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            @Html.HiddenFor(m => m.Id)
-            @Html.CheckBoxFor(m => m.Selected)
-            <a data-toggle="collapse" data-parent="#@ViewData["ParentId"]" href="@("#collapse" + Model.EvaluationItem.Id)" style="text-decoration:none;">
-                <small><i class="glyphicon glyphicon-sort-by-attributes"></i></small> <strong>@Model.EvaluationItem.Caption</strong>
-            </a>
-        </h4>
+@if (ViewData["Hidden"] != null)
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Selected)
+}
+else
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                @Html.HiddenFor(m => m.Id)
+                @Html.CheckBoxFor(m => m.Selected)
+                <a data-toggle="collapse" data-parent="#@ViewData["ParentId"]" href="@("#collapse" + Model.EvaluationItem.Id)" style="text-decoration:none;">
+                    <small><i class="glyphicon glyphicon-sort-by-attributes"></i></small> <strong>@Model.EvaluationItem.Caption</strong>
+                </a>
+            </h4>
+        </div>
+        @Html.Partial("_SafetyConceptModel", Model)
     </div>
-    @Html.Partial("_SafetyConceptModel", Model)
-</div>
+}
+
