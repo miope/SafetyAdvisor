@@ -30,6 +30,16 @@ namespace SafetyAdvisor.Models
         {
             return this.CurrentItems == null ? new List<int>() : this.CurrentItems.Select(ci => ci.Id).ToList();
         }
+
+        public bool CanGoNext()
+        {
+            return this.CurrentItems != null && this.CurrentItems.SelectMany(i => i.EvaluationItem.Children).Any();
+        }
+
+        public bool CanGoPrev()
+        {
+            return this.CurrentItems != null && GetPreviousItemsIds().Any();
+        }
     }
 
     public class SelectSafetyConceptEditorViewModel : SafetyConceptModel

@@ -29,8 +29,8 @@
         <hr />
         <div class="row">
             <div class="col-lg-12">
-                <button class="btn btn-default pull-left" type="submit" value="Previous" name="prev"><i class="glyphicon glyphicon-arrow-left"></i> Zurück</button>
-                <button class="btn btn-primary pull-right" type="submit" value="Next" name="next">Weiter <i class="glyphicon glyphicon-arrow-right"></i></button>
+                <button class="btn btn-default pull-left @(Model.CanGoPrev() ? "" : "disabled")" type="submit" value="Previous" name="prev"><i class="glyphicon glyphicon-arrow-left"></i> Zurück</button>
+                <button class="btn btn-primary pull-right @(Model.CanGoNext() ? "" : "disabled")" type="submit" value="Next" name="next">Weiter <i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
         </div>
     }

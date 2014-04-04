@@ -47,14 +47,15 @@ namespace SafetyAdvisor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SafetyCheckViewModel model)
         {
-            var _previousIds = model.GetPreviousItemsIds();
-            var _currentIds = model.GetCurrentItemsIds();
-            var _selectedIds = model.GetCurrentlySelected().Select(cs => cs.Id);
 
             bool _next = Request.Form.AllKeys.Contains("next");
 
             if (_next)
             {
+                var _previousIds = model.GetPreviousItemsIds();
+                var _currentIds = model.GetCurrentItemsIds();
+                var _selectedIds = model.GetCurrentlySelected().Select(cs => cs.Id);
+
                 if (!model.GetCurrentlySelected().Any())
                 {
                     model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _currentIds.Contains(ei.Id)));
@@ -63,9 +64,21 @@ namespace SafetyAdvisor.Controllers
 
                 model.PreviousItems = model.CurrentItems;
                 model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _selectedIds.Contains(ei.ParentId.Value))).ToList();
-            }
 
-            return View(model);
+                ModelState.Clear();
+                return View(model);
+            }
+            else
+            {
+                var _currentIds = model.GetCurrentItemsIds();
+                var _previousIds = model.GetPreviousItemsIds();
+
+                model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _previousIds.Contains(ei.Id)));
+                model.PreviousItems = GetModel(db.EvaluationItems.Where(ei => _currentIds.Contains(ei.Id)).Select(ei => ei.Parent));
+
+                ModelState.Clear();
+                return View(model);
+            }
 
         }
 

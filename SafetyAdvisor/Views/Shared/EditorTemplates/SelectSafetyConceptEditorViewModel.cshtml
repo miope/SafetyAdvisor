@@ -11,7 +11,10 @@ else
         <div class="panel-heading">
             <h4 class="panel-title">
                 @Html.HiddenFor(m => m.Id)
-                @Html.CheckBoxFor(m => m.Selected)
+                @if (Model.EvaluationItem.Children.Any())
+                { 
+                    @Html.CheckBoxFor(m => m.Selected)
+                }
                 <a data-toggle="collapse" data-parent="#@ViewData["ParentId"]" href="@("#collapse" + Model.EvaluationItem.Id)" style="text-decoration:none;">
                     <small><i class="glyphicon glyphicon-sort-by-attributes"></i></small> <strong>@Model.EvaluationItem.Caption</strong>
                 </a>
