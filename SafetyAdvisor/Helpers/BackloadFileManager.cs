@@ -26,7 +26,7 @@ namespace SafetyAdvisor.Helpers
 
         public static string GetDownloadUrl(string filename, int objectId)
         {
-            return string.Format("{0}/{1}/{2}", VirtualPathUtility.ToAbsolute(ROOT_FOLDER), objectId.ToString(), filename);
+            return string.Format("{0}/{1}/{2}", VirtualPathUtility.ToAbsolute(ROOT_FOLDER), objectId.ToString(), HttpContext.Current.Server.UrlEncode(filename));
         }
 
         public static void DeleteAllFiles(int objectId)
@@ -36,6 +36,12 @@ namespace SafetyAdvisor.Helpers
             {
                 Directory.Delete(_folderPath, true);
             }
+        }
+
+        public static string GetFullFilePath(int objectId, string filename)
+        {
+            string _fullPath = Path.Combine(GetFolderForObject(objectId), filename);
+            return _fullPath;
         }
 
         private static string GetFolderForObject(int objectId)
