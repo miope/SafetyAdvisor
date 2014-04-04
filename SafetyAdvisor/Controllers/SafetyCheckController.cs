@@ -62,7 +62,7 @@ namespace SafetyAdvisor.Controllers
                 }
 
                 model.PreviousItems = model.CurrentItems;
-                model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _selectedIds.Contains(ei.ParentId.Value)));
+                model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _selectedIds.Contains(ei.ParentId.Value))).ToList();
             }
 
             return View(model);
@@ -74,8 +74,9 @@ namespace SafetyAdvisor.Controllers
             return evalItems.Select(ei => new SelectSafetyConceptEditorViewModel()
             {
                 Id = ei.Id,
-                EvaluationItem = ei
-            }).ToList();
+                EvaluationItem = ei,
+                Selected = false
+            });
         }
     }
 }
