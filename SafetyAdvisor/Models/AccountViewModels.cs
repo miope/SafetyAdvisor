@@ -48,7 +48,7 @@ namespace SafetyAdvisor.Models
         [Required(ErrorMessage="Kennwort ist ein Pflichtfeld.")]
         [StringLength(100, ErrorMessage = "Das {0} muss mindestens {2} Zeichen lang sein.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Kennowort")]
+        [Display(Name = "Kennwort")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]

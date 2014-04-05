@@ -20,7 +20,7 @@
         @Html.AntiForgeryToken()
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel-group" id="accordion">
+                <div class="panel-group @(Model.CanGoPrev() ? "" : "unique")" id="accordion">
                     @Html.EditorFor(m => m.PreviousItems, new { Hidden = true })
                     @Html.EditorFor(m => m.CurrentItems, new { ParentId = "accordion" })
                 </div>
@@ -43,6 +43,11 @@
             $('#prev').click(function (e) {
                 e.preventDefault();
                 parent.history.back();
+            });
+            $('.unique [type=checkbox]').click(function () {
+                var state = $(this)[0].checked;
+                $('#accordion [type=checkbox]').removeAttr('checked');
+                $(this)[0].checked = state;
             });
         });
 

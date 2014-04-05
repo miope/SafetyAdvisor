@@ -310,6 +310,7 @@
     <Content Include="Content\Images\andreas.aschenbruecker.jpg" />
     <Content Include="Content\Images\michael.loescher.jpg" />
     <Content Include="Content\Images\sabine.troppens.jpg" />
+    <Content Include="Content\Images\slide1.jpg" />
     <Content Include="Content\Images\tbl2.png" />
     <Content Include="Content\Images\tbl4.png" />
     <Content Include="favicon.ico" />
