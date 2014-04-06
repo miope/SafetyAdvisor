@@ -317,6 +317,7 @@
     <Content Include="Content\Images\tbl2.png" />
     <Content Include="Content\Images\tbl4.png" />
     <Content Include="Content\Images\slide3.jpg" />
+    <Content Include="Content\Images\tbl5.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -405,6 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Docs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
