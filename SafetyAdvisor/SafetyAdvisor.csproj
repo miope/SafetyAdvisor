@@ -329,7 +329,7 @@
     <Content Include="Files\Web.config" />
     <None Include="Properties\PublishProfiles\local package.pubxml" />
     <None Include="Properties\PublishProfiles\SafetyAdvisor FS.pubxml" />
-    <None Include="Properties\PublishProfiles\SafetyAdvisor.pubxml" />
+    <None Include="Properties\PublishProfiles\SafetyAdvisor WD.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fileuploader.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
