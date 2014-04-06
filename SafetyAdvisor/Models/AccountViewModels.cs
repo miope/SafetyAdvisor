@@ -19,7 +19,7 @@ namespace SafetyAdvisor.Models
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Neues Kennwort wiederholen")]
+        [Display(Name = "Kennwort wiederholen")]
         [Compare("NewPassword", ErrorMessage = "Die Kennwörter stimmen nich über ein.")]
         public string ConfirmPassword { get; set; }
     }

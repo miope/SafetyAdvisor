@@ -40,6 +40,7 @@ namespace SafetyAdvisor.Controllers
             _model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => ei.Parent == null)
                                                              .GroupBy(ei => ei.Caption)
                                                              .Select(g => g.FirstOrDefault()));
+            _model.Message = "MVK-Stufe: Welcher Stufe der Medikamentenversorgungskette gehört Ihr Unternehmen an?";
             return View(_model);
         }
 
@@ -70,6 +71,18 @@ namespace SafetyAdvisor.Controllers
                                                 .Select(g => g.FirstOrDefault());
 
             model.CurrentItems = GetModel(_childItems);
+            if (!model.CanGoNext())
+            {
+                model.Message = "Safety-Concepts: Wählen Sie Safety-Concepts aus die Sie für Ihr Unternehmen umsetzen möchten.";
+            }
+            else if (!model.CanGoPrev())
+            { 
+                model.Message = "MVK-Stufe: Welcher Stufe der Medikamentenversorgungskette gehört Ihr Unternehmen an?";
+            }
+            else
+            {
+                model.Message = "Safety-Risks: Wählen Sie Safety-Risks aus mit denen sich Ihr Unternehmen auseinandersetzen sollte.";
+            }
 
             ModelState.Clear();
             return View(model);

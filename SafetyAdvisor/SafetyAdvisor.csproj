@@ -297,16 +297,21 @@
     <Content Include="Content\Backload\content-types\96\Word.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Docs\SafeMed_KommTableau_v01.pdf" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Images\abb1.png" />
     <Content Include="Content\Images\abb10.png" />
     <Content Include="Content\Images\abb11.png" />
+    <Content Include="Content\Images\abb14.png" />
     <Content Include="Content\Images\abb14a.png" />
     <Content Include="Content\Images\abb14b.png" />
+    <Content Include="Content\Images\abb17.png" />
     <Content Include="Content\Images\abb4.png" />
     <Content Include="Content\Images\abb5.png" />
     <Content Include="Content\Images\abb6.png" />
+    <Content Include="Content\Images\abb6a.png" />
     <Content Include="Content\Images\abb7.png" />
+    <Content Include="Content\Images\abb7a.png" />
     <Content Include="Content\Images\abb8.png" />
     <Content Include="Content\Images\abb9.png" />
     <Content Include="Content\Images\andreas.aschenbruecker.jpg" />
@@ -330,6 +335,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Files\Web.config" />
+    <Content Include="Content\Docs\auswirkungen_der_bedrohungsszenarien_v4.pdf" />
+    <Content Include="Content\Docs\pharma_supplychain_prozess_uebersicht.pdf" />
+    <Content Include="Content\Docs\SafeMed_BerichtAP8.pdf" />
+    <Content Include="Content\Docs\safemed_grundsatzpapier_v17.pdf" />
     <None Include="Properties\PublishProfiles\local package.pubxml" />
     <None Include="Properties\PublishProfiles\SafetyAdvisor FS.pubxml" />
     <None Include="Properties\PublishProfiles\SafetyAdvisor WD.pubxml" />
@@ -406,7 +415,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Docs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

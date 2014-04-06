@@ -10,6 +10,7 @@ namespace SafetyAdvisor.Models
     {
         public IEnumerable<SelectSafetyConceptEditorViewModel> PreviousItems { get; set; }
         public IEnumerable<SelectSafetyConceptEditorViewModel> CurrentItems { get; set; }
+        public string Message { get; set; }
 
         public IEnumerable<SelectSafetyConceptEditorViewModel> GetPreviouslySelected()
         {
