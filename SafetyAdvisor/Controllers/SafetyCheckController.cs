@@ -37,7 +37,9 @@ namespace SafetyAdvisor.Controllers
         {
             var _model = new SafetyCheckViewModel();
             _model.PreviousItems = null;
-            _model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => ei.Parent == null));
+            _model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => ei.Parent == null)
+                                                             .GroupBy(ei => ei.Caption)
+                                                             .Select(g => g.FirstOrDefault()));
             return View(_model);
         }
 
@@ -54,12 +56,20 @@ namespace SafetyAdvisor.Controllers
 
             if (!model.GetCurrentlySelected().Any())
             {
-                model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _currentIds.Contains(ei.Id)));
+                var _sameItems = db.EvaluationItems.Where(ei => _currentIds.Contains(ei.Id))
+                                                   .GroupBy(ei => ei.Caption)
+                                                   .Select(g => g.FirstOrDefault());
+
+                model.CurrentItems = GetModel(_sameItems);
                 return View(model).Alert(AlertType.Danger, "Sie müssen zumindest einen Item auswählen!");
             }
 
             model.PreviousItems = model.CurrentItems;
-            model.CurrentItems = GetModel(db.EvaluationItems.Where(ei => _selectedIds.Contains(ei.ParentId.Value))).ToList();
+            var _childItems = db.EvaluationItems.Where(ei => _selectedIds.Contains(ei.ParentId.Value))
+                                                .GroupBy(ei => ei.Caption)
+                                                .Select(g => g.FirstOrDefault());
+
+            model.CurrentItems = GetModel(_childItems);
 
             ModelState.Clear();
             return View(model);

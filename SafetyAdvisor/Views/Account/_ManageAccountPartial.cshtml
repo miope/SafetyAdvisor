@@ -4,7 +4,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <p>You can change the data related to your account here. All of the fields below are optional.</p>
+    <p>Hier können Sie Ihre Benutzerkontodaten verwalten. Alle Felder sind optional.</p>
     <hr />
 
     @Html.ValidationSummary()
@@ -39,7 +39,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-primary" /> or @Html.ActionLink("cancel", "index", "home") and go back to homepage.
+            <input type="submit" value="Speichern" class="btn btn-primary" /> oder @Html.ActionLink("abbrechen", "index", "home") und zurück zur Homepage.
         </div>
     </div>
 }

@@ -27,7 +27,8 @@ namespace SafetyAdvisor.Controllers
         public ActionResult Index()
         {
             var _concepts = db.EvaluationItems.Where(ei => !ei.Children.Any())
-                                              .Select(ei => new SafetyConceptModel() { EvaluationItem = ei });
+                                              .GroupBy(ei => ei.Caption)
+                                              .Select(g => new SafetyConceptModel() { EvaluationItem = g.FirstOrDefault() });
 
             var _model = new SafetyConceptsViewModel()
             {
