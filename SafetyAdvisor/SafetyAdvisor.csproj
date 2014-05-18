@@ -339,6 +339,7 @@
     <Content Include="Content\Docs\pharma_supplychain_prozess_uebersicht.pdf" />
     <Content Include="Content\Docs\SafeMed_BerichtAP8.pdf" />
     <Content Include="Content\Docs\safemed_grundsatzpapier_v17.pdf" />
+    <Content Include="Content\Docs\safemed_grundsatzpapier_v20.pdf" />
     <None Include="Properties\PublishProfiles\local package.pubxml" />
     <None Include="Properties\PublishProfiles\SafetyAdvisor FS.pubxml" />
     <None Include="Properties\PublishProfiles\SafetyAdvisor WD.pubxml" />
