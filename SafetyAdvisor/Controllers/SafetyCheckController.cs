@@ -9,7 +9,7 @@ using SafetyAdvisor.Models;
 
 namespace SafetyAdvisor.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrators,Editors,Members,Users")]
     public class SafetyCheckController : Controller
     {
         private ApplicationDbContext db;
