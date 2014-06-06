@@ -84,6 +84,7 @@ namespace SafetyAdvisor.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    /*
                     result = await UserManager.AddToRoleAsync(user.Id, "Users");
                     if (result.Succeeded)
                     {
@@ -94,6 +95,19 @@ namespace SafetyAdvisor.Controllers
                     {
                         AddErrors(result);
                     }
+                    */
+                    await SignInAsync(user, isPersistent: false);
+                    string _emailSubject = "SafetyAdvisor: New registration";
+                    string _emailBody = string.Format("User {0} has registered for SafetyAdvisor. You need to approve his account.", user.UserName);
+                    try
+                    {
+                        Mailer.SendEmailToAdmin("info@sichere-pharmakette.de", _emailSubject, _emailBody);
+                    }
+                    catch (Exception)
+                    {
+                        // do nothin for now...we will need to log this somewhere...later...
+                    }
+                    return RedirectToAction("Manage").Alert(AlertType.Success, "Sie haben sich erfolgreich registriert. Hier können Sie ihre Kontodaten bearbeiten. Erst nach der Freischaltung Ihres Kontos bekommen Sie vollen Zugang zu SafetyAdvisor Inhalten.");
                 }
                 else
                 {

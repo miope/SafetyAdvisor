@@ -54,22 +54,19 @@ namespace SafetyAdvisor.Controllers
         {
             if (ModelState.IsValid)
             {
-                string _toEmail = ConfigurationManager.AppSettings["SafetyAdvisor.AdminEmailAddress"];
-                MailMessage _emailMessage = new MailMessage(model.Email, _toEmail);
-                _emailMessage.Subject = string.Format("SafetyAdvisor: Contact request from {0}", model.Email);
-                _emailMessage.Body = model.GetContentsForEmail();
 
-                SmtpClient _smtpClient = new SmtpClient();
+                string _subject = string.Format("SafetyAdvisor: Contact request from {0}", model.Email);
+                string _body = model.GetContentsForEmail();
                 try
                 {
-                    _smtpClient.Send(_emailMessage);
+                    Mailer.SendEmailToAdmin(model.Email, _subject, _body);
                 }
                 catch (Exception ex)
                 {
-                    return View().Alert(AlertType.Danger, string.Format("Message could not be sent: {0}", ex.Message));
+                    return View().Alert(AlertType.Danger, string.Format("Die Email konnte nich verschickt werden: {0}", ex.Message));
                 }
 
-                return View().Alert(AlertType.Success, "Thank you for your inquiry. We will be getting back to you as soon as we can.");
+                return View().Alert(AlertType.Success, "Vielen Dank für Ihre Anfrage! Wir melden uns bei Ihnen schnellstmöglich.");
             }
             return View(model);
         }

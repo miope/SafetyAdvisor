@@ -185,6 +185,7 @@
     <Compile Include="Helpers\EntityFrameworkExtenstions.cs" />
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Helpers\IdentityExtenstions.cs" />
+    <Compile Include="Helpers\Mailer.cs" />
     <Compile Include="Migrations\201403141526308_InitialCreate.cs" />
     <Compile Include="Migrations\201403141526308_InitialCreate.Designer.cs">
       <DependentUpon>201403141526308_InitialCreate.cs</DependentUpon>

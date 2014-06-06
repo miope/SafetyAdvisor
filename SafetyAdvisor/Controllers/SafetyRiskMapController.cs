@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SafetyAdvisor.Controllers
 {
-    [Authorize(Roles="Administrators,Editors,Members,Users")]
+    [Authorize(Roles = "Administrators,Editors,Members,Users")]
     public class SafetyRiskMapController : Controller
     {
         //
